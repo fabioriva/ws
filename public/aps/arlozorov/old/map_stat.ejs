@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include head %>
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include log %>
+		<!-- Base Pagesheet -->
+		<div class="container">
+			<div class="page-header">
+				<h3>System Occupancy <small>Arlozorov &middot; Tel Aviv &middot; Israel</small></h3>
+			</div>	
+			<div style="width: 50%; margin: 0 auto;">
+				<chart></chart>
+				<div class="panel panel-info" id="info">
+					<div class="panel-heading text-center"><strong>Summary</strong></div>
+					<table class="table" >
+						<tr><td>Total parking spaces</td><td class="text-center"><strong class="text-info" ng-bind="data[0]"></strong></td></tr>
+						<tr><td>Available spaces</td><td class="text-center"><strong class="text-success" ng-bind="data[1]"></strong></td></tr>
+						<tr><td>Occupied spaces</td><td class="text-center"><strong class="text-danger" ng-bind="data[2]"></strong></td></tr>
+						<tr><td>Locked spaces</td><td class="text-center"><strong class="text-muted" ng-bind="data[3]"></strong></td></tr>
+					</table>
+				</div>
+			</div>
+		</div> <!-- /container -->
+		<% include footer %>
+		<% include scripts %>
+		<!-- Google jsapi -->
+		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+		<script type="text/javascript" src="/aps/arlozorov/js/map_stat.js"></script>
+	</body>
+</html>

@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include ../head %>
+		<link href="/css/aps/arlozorov/plc_io.css" rel="stylesheet" media="screen">
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include ../log %>
+		<!-- Base Pagesheet -->
+		<div class="container">
+			<div class="page-header">
+				<h3>PLC Digital I/O <small>Arlozorov &middot; Tel Aviv &middot; Israel</small></h3>
+			</div>
+			<!--
+			<div class="alert alert-info">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				<p><strong>Tip</strong> : Hover on the label to get additional informations.</p>
+			</div>
+			-->
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" id="tab-io">
+				<li><a href="#tab-io-1" data-toggle="tab">Rack 1</a></li>
+				<li><a href="#tab-io-2" data-toggle="tab">Rack 2</a></li>
+			</ul>
+			<div class="tab-content">
+				<div class="tab-pane fade" id="tab-io-1">
+					<div class="page-header">
+						<h5 class="bs-callout bs-callout-info"><strong>Tip</strong> : Hover on the label to get additional informations.<a class="no-underline pull-right" href="/arlozorov/plc/io/list">
+						<span class="fa fa-search"></span>&nbsp; List View</a></h5>
+					</div>
+					<div class="rack" id="r01">
+						<span ng-repeat="card in ::rack_el1.cards">
+						<div class="card-et200m" id="r01c0{{card.nr}}">
+							<div class="title-et200m">Card {{card.nr}}</div>
+							<span ng-repeat="byte in ::card.bytes">
+								<div class="label-et200m" id="label-{{byte.label}}">Byte {{byte.label}}</div>
+								<div ng-repeat="bit in ::byte.bits">
+									<span class="bit-id" id="l-id-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" data-toggle="tooltip" data-placement="top" title="{{bit.text}}" tooltip>{{bit.label}}</span>
+									<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" data-toggle="tooltip" data-placement="top" title="{{bit.text}}" tooltip>{{bit.status}}</span>
+									<!--
+									<span ng-class="bitStatus(bit.status)" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" data-toggle="tooltip" data-placement="top" title="{{bit.text}}" tooltip>{{bit.status}}</span>
+									-->
+									<span class="bit-nr" id="l-nr-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" data-toggle="tooltip" data-placement="top" title="{{bit.text}}" tooltip>.{{$index}}</span>
+								</div>
+							</span>
+						<div class="type-et200m" ng-bind="card.type"></div>
+						</div>
+						</span>
+					</div>
+				</div>
+				<div class="tab-pane fade" id="tab-io-2">
+					<div class="page-header">
+						<h5 class="bs-callout bs-callout-info"><strong>Tip</strong> : Hover on the label to get additional informations.<a class="no-underline pull-right" href="/arlozorov/plc/io/list">
+						<span class="fa fa-search"></span>&nbsp; List View</a></h5>
+					</div>
+					<div class="rack" id="r02">
+						<span ng-repeat="card in ::rack_el2.cards">
+						<div class="card-et200s" id="r02c0{{card.nr}}">
+							<div class="title-et200s">Card {{card.nr}}</div>
+							<span ng-repeat="byte in ::card.bytes">
+								<div class="label-et200s" id="label-{{byte.label}}">Byte {{byte.label}}</div>
+								<div ng-repeat="bit in ::byte.bits">
+									<span class="bit-id" id="l-id-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" data-toggle="tooltip" data-placement="top" title="{{bit.text}}" tooltip>{{bit.label}}</span>
+									<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" data-toggle="tooltip" data-placement="top" title="{{bit.text}}" tooltip>{{bit.status}}</span>
+									<span class="bit-nr" id="l-nr-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" data-toggle="tooltip" data-placement="top" title="{{bit.text}}" tooltip>.{{$index}}</span>
+								</div>
+							</span>
+						<div class="type-et200s" ng-bind="card.type"></div>
+						</div>
+						</span>
+					</div>
+				</div>
+			</div>
+			
+		</div> <!-- /container -->
+		<% include ../../footer %>
+		<% include ../../scripts %>
+		<% include ../scripts %>
+		<% include scripts %>
+		<script type="text/javascript" src="/js/aps/arlozorov/plc_io.js"></script>
+	</body>
+</html>

@@ -1,0 +1,341 @@
+.alert {
+
+	background-color: #fdf7f7;
+	border-left: 3px solid #d9534f;
+	color: #d9534f;
+	margin: 0 0 20px 0;
+}
+.rack {
+    position: relative;
+    background-color: #C0C0C0;
+    border: 1px solid #000000;
+    height: 364px;
+    width: 100%;
+	left: 0px;
+    top: 20px;
+}
+/* ET200M */
+.card-et200m {
+    position: absolute;
+    border: 1px solid #000000;
+    height: 360px;
+    width: 188px;
+    background-color: #505050;
+    color: #000000;
+    /*font-family: "Arial", Sans-Serif;
+    font-size: 0.8em;*/
+    text-align: center;
+    vertical-align: middle;
+    line-height: 16px;   
+}
+.title-et200m {
+    height: 18px;
+    color: #8080FF;
+}
+.label-et200m {
+    position: absolute;
+    height: 18px;
+    width: 82px;
+    background-color: #FFFF00;
+    border: 1px solid #000000;
+}
+.type-et200m {
+    position: absolute;
+    right: 10px;
+    top: 342px;
+    height: 18px;
+    color: #F0F0F0;
+	font-family: "Arial", Sans-Serif;
+    font-size: 0.88em;
+    text-align: left;
+
+}
+/* ET200S */
+.card-et200s {
+    position: absolute;
+    border: 1px solid #000000;
+    height: 360px;
+    width: 110px;
+    background-color: #505050;
+    color: #000000;
+    /*font-family: "Arial", Sans-Serif;
+    font-size: 0.8em;*/
+    text-align: center;
+    vertical-align: middle;
+    line-height: 16px;   
+}
+.title-et200s {
+    height: 18px;
+    color: #8080FF;
+}
+.label-et200s {
+    position: absolute;
+    height: 18px;
+    width: 90px;
+    background-color: #FFFF00;
+    border: 1px solid #000000;
+}
+.type-et200s {
+    position: absolute;
+    left: 4px;
+    top: 342px;
+    height: 18px;
+    color: #F0F0F0;
+	font-family: "Arial", Sans-Serif;
+    font-size: 0.88em;
+    text-align: left;
+
+}
+
+.bit-id {
+    position: absolute;
+    height: 18px;
+    width: 45px;
+    background-color: #FFFFFF;
+    border: 1px solid #000000;
+	font-size: 0.78em;
+}
+.bit-st {
+    position: absolute;
+    height: 18px;
+    width: 12px;
+    background-color: #C0C0C0;
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+    
+}
+.bit-nr {
+    position: absolute;
+    height: 18px;
+    width: 24px;
+    background-color: #E0E0E0;
+    border: 1px solid #000000;
+    /*font-weight: bold;*/
+}
+.bit-false {
+	background-color: #C0C0C0;
+}
+.bit-true {
+	background-color: #00FF00;
+}
+/* Rack 1 */
+#r01  
+{
+    left: 0px;
+    top: 20px;
+}
+/* Card 1 */
+#r01c01
+{
+    left: 1px;
+    top: 1px;
+}
+#label-EB0 { left: 10px; top: 100px; }
+/* Byte 0 */
+#l-id-1E00 { left: 10px; top: 125px; }  #l-st-1E00 { left: 35px; top: 23px; }  #l-nr-1E00 { left: 10px; top: 23px; }
+#l-id-1E01 { left: 54px; top: 125px; }  #l-st-1E01 { left: 62px; top: 23px; }  #l-nr-1E01 { left: 75px; top: 23px; }
+#l-id-1E02 { left: 10px; top: 142px; }  #l-st-1E02 { left: 35px; top: 40px; }  #l-nr-1E02 { left: 10px; top: 40px; }
+#l-id-1E03 { left: 54px; top: 142px; }  #l-st-1E03 { left: 62px; top: 40px; }  #l-nr-1E03 { left: 75px; top: 40px; }
+#l-id-1E04 { left: 10px; top: 159px; }  #l-st-1E04 { left: 35px; top: 57px; }  #l-nr-1E04 { left: 10px; top: 57px; }
+#l-id-1E05 { left: 54px; top: 159px; }  #l-st-1E05 { left: 62px; top: 57px; }  #l-nr-1E05 { left: 75px; top: 57px; }
+#l-id-1E06 { left: 10px; top: 176px; }  #l-st-1E06 { left: 35px; top: 74px; }  #l-nr-1E06 { left: 10px; top: 74px; }
+#l-id-1E07 { left: 54px; top: 176px; }  #l-st-1E07 { left: 62px; top: 74px; }  #l-nr-1E07 { left: 75px; top: 74px; }
+/* Card 2 */
+#r01c02
+{
+    left: 113px;	/*1px*/
+    top: 1px;
+}
+#label-EB1 { left: 10px; top: 100px; }
+/* Byte 0 */
+#l-id-1E10 { left: 10px; top: 125px; }  #l-st-1E10 { left: 35px; top: 23px; }  #l-nr-1E10 { left: 10px; top: 23px; }
+#l-id-1E11 { left: 54px; top: 125px; }  #l-st-1E11 { left: 62px; top: 23px; }  #l-nr-1E11 { left: 75px; top: 23px; }
+#l-id-1E12 { left: 10px; top: 142px; }  #l-st-1E12 { left: 35px; top: 40px; }  #l-nr-1E12 { left: 10px; top: 40px; }
+#l-id-1E13 { left: 54px; top: 142px; }  #l-st-1E13 { left: 62px; top: 40px; }  #l-nr-1E13 { left: 75px; top: 40px; }
+#l-id-1E14 { left: 10px; top: 159px; }  #l-st-1E14 { left: 35px; top: 57px; }  #l-nr-1E14 { left: 10px; top: 57px; }
+#l-id-1E15 { left: 54px; top: 159px; }  #l-st-1E15 { left: 62px; top: 57px; }  #l-nr-1E15 { left: 75px; top: 57px; }
+#l-id-1E16 { left: 10px; top: 176px; }  #l-st-1E16 { left: 35px; top: 74px; }  #l-nr-1E16 { left: 10px; top: 74px; }
+#l-id-1E17 { left: 54px; top: 176px; }  #l-st-1E17 { left: 62px; top: 74px; }  #l-nr-1E17 { left: 75px; top: 74px; }
+/* Card 3 */
+#r01c03
+{
+    left: 225px;
+    top: 1px;
+}
+#label-EB2 { left: 10px; top: 100px; }
+/* Byte 0 */
+#l-id-1E20 { left: 10px; top: 125px; }  #l-st-1E20 { left: 35px; top: 23px; }  #l-nr-1E20 { left: 10px; top: 23px; }
+#l-id-1E21 { left: 54px; top: 125px; }  #l-st-1E21 { left: 62px; top: 23px; }  #l-nr-1E21 { left: 75px; top: 23px; }
+#l-id-1E22 { left: 10px; top: 142px; }  #l-st-1E22 { left: 35px; top: 40px; }  #l-nr-1E22 { left: 10px; top: 40px; }
+#l-id-1E23 { left: 54px; top: 142px; }  #l-st-1E23 { left: 62px; top: 40px; }  #l-nr-1E23 { left: 75px; top: 40px; }
+#l-id-1E24 { left: 10px; top: 159px; }  #l-st-1E24 { left: 35px; top: 57px; }  #l-nr-1E24 { left: 10px; top: 57px; }
+#l-id-1E25 { left: 54px; top: 159px; }  #l-st-1E25 { left: 62px; top: 57px; }  #l-nr-1E25 { left: 75px; top: 57px; }
+#l-id-1E26 { left: 10px; top: 176px; }  #l-st-1E26 { left: 35px; top: 74px; }  #l-nr-1E26 { left: 10px; top: 74px; }
+#l-id-1E27 { left: 54px; top: 176px; }  #l-st-1E27 { left: 62px; top: 74px; }  #l-nr-1E27 { left: 75px; top: 74px; }
+/* Card 4 */
+#r01c04
+{
+    left: 337px;
+    top: 1px;
+}
+#label-EB3 { left: 10px; top: 100px; }
+/* Byte 0 */
+#l-id-1E30 { left: 10px; top: 125px; }  #l-st-1E30 { left: 35px; top: 23px; }  #l-nr-1E30 { left: 10px; top: 23px; }
+#l-id-1E31 { left: 54px; top: 125px; }  #l-st-1E31 { left: 62px; top: 23px; }  #l-nr-1E31 { left: 75px; top: 23px; }
+#l-id-1E32 { left: 10px; top: 142px; }  #l-st-1E32 { left: 35px; top: 40px; }  #l-nr-1E32 { left: 10px; top: 40px; }
+#l-id-1E33 { left: 54px; top: 142px; }  #l-st-1E33 { left: 62px; top: 40px; }  #l-nr-1E33 { left: 75px; top: 40px; }
+#l-id-1E34 { left: 10px; top: 159px; }  #l-st-1E34 { left: 35px; top: 57px; }  #l-nr-1E34 { left: 10px; top: 57px; }
+#l-id-1E35 { left: 54px; top: 159px; }  #l-st-1E35 { left: 62px; top: 57px; }  #l-nr-1E35 { left: 75px; top: 57px; }
+#l-id-1E36 { left: 10px; top: 176px; }  #l-st-1E36 { left: 35px; top: 74px; }  #l-nr-1E36 { left: 10px; top: 74px; }
+#l-id-1E37 { left: 54px; top: 176px; }  #l-st-1E37 { left: 62px; top: 74px; }  #l-nr-1E37 { left: 75px; top: 74px; }
+/* Card 5 */
+#r01c05
+{
+    left: 449px;
+    top: 1px;
+}
+#label-EB4 { left: 10px; top: 100px; }
+/* Byte 0 */
+#l-id-1E40 { left: 10px; top: 125px; }  #l-st-1E40 { left: 35px; top: 23px; }  #l-nr-1E40 { left: 10px; top: 23px; }
+#l-id-1E41 { left: 54px; top: 125px; }  #l-st-1E41 { left: 62px; top: 23px; }  #l-nr-1E41 { left: 75px; top: 23px; }
+#l-id-1E42 { left: 10px; top: 142px; }  #l-st-1E42 { left: 35px; top: 40px; }  #l-nr-1E42 { left: 10px; top: 40px; }
+#l-id-1E43 { left: 54px; top: 142px; }  #l-st-1E43 { left: 62px; top: 40px; }  #l-nr-1E43 { left: 75px; top: 40px; }
+#l-id-1E44 { left: 10px; top: 159px; }  #l-st-1E44 { left: 35px; top: 57px; }  #l-nr-1E44 { left: 10px; top: 57px; }
+#l-id-1E45 { left: 54px; top: 159px; }  #l-st-1E45 { left: 62px; top: 57px; }  #l-nr-1E45 { left: 75px; top: 57px; }
+#l-id-1E46 { left: 10px; top: 176px; }  #l-st-1E46 { left: 35px; top: 74px; }  #l-nr-1E46 { left: 10px; top: 74px; }
+#l-id-1E47 { left: 54px; top: 176px; }  #l-st-1E47 { left: 62px; top: 74px; }  #l-nr-1E47 { left: 75px; top: 74px; }
+/* Card 6 */
+#r01c06
+{
+    left: 561px;
+    top: 1px;
+}
+#label-AB0 { left: 10px; top: 100px; }
+/* Byte 0 */
+#l-id-1A00 { left: 10px; top: 125px; }  #l-st-1A00 { left: 35px; top: 23px; }  #l-nr-1A00 { left: 10px; top: 23px; }
+#l-id-1A01 { left: 54px; top: 125px; }  #l-st-1A01 { left: 62px; top: 23px; }  #l-nr-1A01 { left: 75px; top: 23px; }
+#l-id-1A02 { left: 10px; top: 142px; }  #l-st-1A02 { left: 35px; top: 40px; }  #l-nr-1A02 { left: 10px; top: 40px; }
+#l-id-1A03 { left: 54px; top: 142px; }  #l-st-1A03 { left: 62px; top: 40px; }  #l-nr-1A03 { left: 75px; top: 40px; }
+#l-id-1A04 { left: 10px; top: 159px; }  #l-st-1A04 { left: 35px; top: 57px; }  #l-nr-1A04 { left: 10px; top: 57px; }
+#l-id-1A05 { left: 54px; top: 159px; }  #l-st-1A05 { left: 62px; top: 57px; }  #l-nr-1A05 { left: 75px; top: 57px; }
+#l-id-1A06 { left: 10px; top: 176px; }  #l-st-1A06 { left: 35px; top: 74px; }  #l-nr-1A06 { left: 10px; top: 74px; }
+#l-id-1A07 { left: 54px; top: 176px; }  #l-st-1A07 { left: 62px; top: 74px; }  #l-nr-1A07 { left: 75px; top: 74px; }
+/* Card 7 */
+#r01c07
+{
+    left: 673px;
+    top: 1px;
+}
+#label-AB1 { left: 10px; top: 100px; }
+/* Byte 0 */
+#l-id-1A10 { left: 10px; top: 125px; }  #l-st-1A10 { left: 35px; top: 23px; }  #l-nr-1A10 { left: 10px; top: 23px; }
+#l-id-1A11 { left: 54px; top: 125px; }  #l-st-1A11 { left: 62px; top: 23px; }  #l-nr-1A11 { left: 75px; top: 23px; }
+#l-id-1A12 { left: 10px; top: 142px; }  #l-st-1A12 { left: 35px; top: 40px; }  #l-nr-1A12 { left: 10px; top: 40px; }
+#l-id-1A13 { left: 54px; top: 142px; }  #l-st-1A13 { left: 62px; top: 40px; }  #l-nr-1A13 { left: 75px; top: 40px; }
+#l-id-1A14 { left: 10px; top: 159px; }  #l-st-1A14 { left: 35px; top: 57px; }  #l-nr-1A14 { left: 10px; top: 57px; }
+#l-id-1A15 { left: 54px; top: 159px; }  #l-st-1A15 { left: 62px; top: 57px; }  #l-nr-1A15 { left: 75px; top: 57px; }
+#l-id-1A16 { left: 10px; top: 176px; }  #l-st-1A16 { left: 35px; top: 74px; }  #l-nr-1A16 { left: 10px; top: 74px; }
+#l-id-1A17 { left: 54px; top: 176px; }  #l-st-1A17 { left: 62px; top: 74px; }  #l-nr-1A17 { left: 75px; top: 74px; }
+/* Card 8 */
+#r01c08
+{
+    left: 785px;
+    top: 1px;
+}
+#label-AB2 { left: 10px; top: 100px; }
+/* Byte 0 */
+#l-id-1A20 { left: 10px; top: 125px; }  #l-st-1A20 { left: 35px; top: 23px; }  #l-nr-1A20 { left: 10px; top: 23px; }
+#l-id-1A21 { left: 54px; top: 125px; }  #l-st-1A21 { left: 62px; top: 23px; }  #l-nr-1A21 { left: 75px; top: 23px; }
+#l-id-1A22 { left: 10px; top: 142px; }  #l-st-1A22 { left: 35px; top: 40px; }  #l-nr-1A22 { left: 10px; top: 40px; }
+#l-id-1A23 { left: 54px; top: 142px; }  #l-st-1A23 { left: 62px; top: 40px; }  #l-nr-1A23 { left: 75px; top: 40px; }
+#l-id-1A24 { left: 10px; top: 159px; }  #l-st-1A24 { left: 35px; top: 57px; }  #l-nr-1A24 { left: 10px; top: 57px; }
+#l-id-1A25 { left: 54px; top: 159px; }  #l-st-1A25 { left: 62px; top: 57px; }  #l-nr-1A25 { left: 75px; top: 57px; }
+#l-id-1A26 { left: 10px; top: 176px; }  #l-st-1A26 { left: 35px; top: 74px; }  #l-nr-1A26 { left: 10px; top: 74px; }
+#l-id-1A27 { left: 54px; top: 176px; }  #l-st-1A27 { left: 62px; top: 74px; }  #l-nr-1A27 { left: 75px; top: 74px; }
+/* Card 9 */
+#r01c09
+{
+    left: 897px;
+    top: 1px;
+}
+#label-AB3 { left: 10px; top: 100px; }
+/* Byte 0 */
+#l-id-1A30 { left: 10px; top: 125px; }  #l-st-1A30 { left: 35px; top: 23px; }  #l-nr-1A30 { left: 10px; top: 23px; }
+#l-id-1A31 { left: 54px; top: 125px; }  #l-st-1A31 { left: 62px; top: 23px; }  #l-nr-1A31 { left: 75px; top: 23px; }
+#l-id-1A32 { left: 10px; top: 142px; }  #l-st-1A32 { left: 35px; top: 40px; }  #l-nr-1A32 { left: 10px; top: 40px; }
+#l-id-1A33 { left: 54px; top: 142px; }  #l-st-1A33 { left: 62px; top: 40px; }  #l-nr-1A33 { left: 75px; top: 40px; }
+#l-id-1A34 { left: 10px; top: 159px; }  #l-st-1A34 { left: 35px; top: 57px; }  #l-nr-1A34 { left: 10px; top: 57px; }
+#l-id-1A35 { left: 54px; top: 159px; }  #l-st-1A35 { left: 62px; top: 57px; }  #l-nr-1A35 { left: 75px; top: 57px; }
+#l-id-1A36 { left: 10px; top: 176px; }  #l-st-1A36 { left: 35px; top: 74px; }  #l-nr-1A36 { left: 10px; top: 74px; }
+#l-id-1A37 { left: 54px; top: 176px; }  #l-st-1A37 { left: 62px; top: 74px; }  #l-nr-1A37 { left: 75px; top: 74px; }
+
+/* Rack 2 */
+#r02  
+{
+    left: 0px;
+    top: 20px;
+}
+/* Card 1 */
+#r02c01
+{
+    left: 1px;
+    top: 1px;
+}
+#label-EB4 { left: 10px; top: 100px; }
+/* Byte 0 */
+#l-id-1E40 { left: 10px; top: 125px; }  #l-st-1E40 { left: 35px; top: 23px; }  #l-nr-1E40 { left: 10px; top: 23px; }
+#l-id-1E41 { left: 54px; top: 125px; }  #l-st-1E41 { left: 62px; top: 23px; }  #l-nr-1E41 { left: 75px; top: 23px; }
+#l-id-1E42 { left: 10px; top: 142px; }  #l-st-1E42 { left: 35px; top: 40px; }  #l-nr-1E42 { left: 10px; top: 40px; }
+#l-id-1E43 { left: 54px; top: 142px; }  #l-st-1E43 { left: 62px; top: 40px; }  #l-nr-1E43 { left: 75px; top: 40px; }
+#l-id-1E44 { left: 10px; top: 159px; }  #l-st-1E44 { left: 35px; top: 57px; }  #l-nr-1E44 { left: 10px; top: 57px; }
+#l-id-1E45 { left: 54px; top: 159px; }  #l-st-1E45 { left: 62px; top: 57px; }  #l-nr-1E45 { left: 75px; top: 57px; }
+#l-id-1E46 { left: 10px; top: 176px; }  #l-st-1E46 { left: 35px; top: 74px; }  #l-nr-1E46 { left: 10px; top: 74px; }
+#l-id-1E47 { left: 54px; top: 176px; }  #l-st-1E47 { left: 62px; top: 74px; }  #l-nr-1E47 { left: 75px; top: 74px; }
+/* Card 2 */
+#r02c02
+{
+    left: 113px;	/*1px*/
+    top: 1px;
+}
+#label-EB5 { left: 10px; top: 100px; }
+/* Byte 0 */
+#l-id-1E50 { left: 10px; top: 125px; }  #l-st-1E50 { left: 35px; top: 23px; }  #l-nr-1E50 { left: 10px; top: 23px; }
+#l-id-1E51 { left: 54px; top: 125px; }  #l-st-1E51 { left: 62px; top: 23px; }  #l-nr-1E51 { left: 75px; top: 23px; }
+#l-id-1E52 { left: 10px; top: 142px; }  #l-st-1E52 { left: 35px; top: 40px; }  #l-nr-1E52 { left: 10px; top: 40px; }
+#l-id-1E53 { left: 54px; top: 142px; }  #l-st-1E53 { left: 62px; top: 40px; }  #l-nr-1E53 { left: 75px; top: 40px; }
+#l-id-1E54 { left: 10px; top: 159px; }  #l-st-1E54 { left: 35px; top: 57px; }  #l-nr-1E54 { left: 10px; top: 57px; }
+#l-id-1E55 { left: 54px; top: 159px; }  #l-st-1E55 { left: 62px; top: 57px; }  #l-nr-1E55 { left: 75px; top: 57px; }
+#l-id-1E56 { left: 10px; top: 176px; }  #l-st-1E56 { left: 35px; top: 74px; }  #l-nr-1E56 { left: 10px; top: 74px; }
+#l-id-1E57 { left: 54px; top: 176px; }  #l-st-1E57 { left: 62px; top: 74px; }  #l-nr-1E57 { left: 75px; top: 74px; }
+/* Card 3 */
+#r02c03
+{
+    left: 225px;
+    top: 1px;
+}
+#label-EB6 { left: 10px; top: 100px; }
+/* Byte 0 */
+#l-id-1E60 { left: 10px; top: 125px; }  #l-st-1E60 { left: 35px; top: 23px; }  #l-nr-1E60 { left: 10px; top: 23px; }
+#l-id-1E61 { left: 54px; top: 125px; }  #l-st-1E61 { left: 62px; top: 23px; }  #l-nr-1E61 { left: 75px; top: 23px; }
+#l-id-1E62 { left: 10px; top: 142px; }  #l-st-1E62 { left: 35px; top: 40px; }  #l-nr-1E62 { left: 10px; top: 40px; }
+#l-id-1E63 { left: 54px; top: 142px; }  #l-st-1E63 { left: 62px; top: 40px; }  #l-nr-1E63 { left: 75px; top: 40px; }
+#l-id-1E64 { left: 10px; top: 159px; }  #l-st-1E64 { left: 35px; top: 57px; }  #l-nr-1E64 { left: 10px; top: 57px; }
+#l-id-1E65 { left: 54px; top: 159px; }  #l-st-1E65 { left: 62px; top: 57px; }  #l-nr-1E65 { left: 75px; top: 57px; }
+#l-id-1E66 { left: 10px; top: 176px; }  #l-st-1E66 { left: 35px; top: 74px; }  #l-nr-1E66 { left: 10px; top: 74px; }
+#l-id-1E67 { left: 54px; top: 176px; }  #l-st-1E67 { left: 62px; top: 74px; }  #l-nr-1E67 { left: 75px; top: 74px; }
+/* Card 4 */
+#r02c04
+{
+    left: 337px;
+    top: 1px;
+}
+#label-AB3 { left: 10px; top: 100px; }
+/* Byte 0 */
+#l-id-1A30 { left: 10px; top: 125px; }  #l-st-1A30 { left: 35px; top: 23px; }  #l-nr-1A30 { left: 10px; top: 23px; }
+#l-id-1A31 { left: 54px; top: 125px; }  #l-st-1A31 { left: 62px; top: 23px; }  #l-nr-1A31 { left: 75px; top: 23px; }
+#l-id-1A32 { left: 10px; top: 142px; }  #l-st-1A32 { left: 35px; top: 40px; }  #l-nr-1A32 { left: 10px; top: 40px; }
+#l-id-1A33 { left: 54px; top: 142px; }  #l-st-1A33 { left: 62px; top: 40px; }  #l-nr-1A33 { left: 75px; top: 40px; }
+#l-id-1A34 { left: 10px; top: 159px; }  #l-st-1A34 { left: 35px; top: 57px; }  #l-nr-1A34 { left: 10px; top: 57px; }
+#l-id-1A35 { left: 54px; top: 159px; }  #l-st-1A35 { left: 62px; top: 57px; }  #l-nr-1A35 { left: 75px; top: 57px; }
+#l-id-1A36 { left: 10px; top: 176px; }  #l-st-1A36 { left: 35px; top: 74px; }  #l-nr-1A36 { left: 10px; top: 74px; }
+#l-id-1A37 { left: 54px; top: 176px; }  #l-st-1A37 { left: 62px; top: 74px; }  #l-nr-1A37 { left: 75px; top: 74px; }

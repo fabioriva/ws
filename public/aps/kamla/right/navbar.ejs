@@ -1,0 +1,91 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="http://www.sotefinservice.com"><span class="brand-title" style="color: #F09000;">Sotefin Web Service</span></a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav">
+				<li><a href="/kamla/index"><span class="glyphicon glyphicon-home glyphicon-white"></span> Home</a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-eye-open glyphicon-white"></span> System <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/kamla/right/index">Statistics</a></li>
+						<li class="divider"></li>
+						<li><a href="/kamla/right/device">Overview</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-cog glyphicon-white"></span> Devices <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/kamla/right/elevator/1">Elevator 1</a></li>
+						<li><a href="/kamla/right/elevator/2">Elevator 2</a></li>
+						<li><a href="/kamla/right/elevator/3">Elevator 3</a></li>
+						<li class="divider"></li>
+						<li><a href="/kamla/right/shuttle/1">Shuttle 1</a></li>
+						<li><a href="/kamla/right/shuttle/2">Shuttle 2</a></li>
+						<li><a href="/kamla/right/shuttle/3">Shuttle 3</a></li>
+						<li><a href="/kamla/right/shuttle/4">Shuttle 4</a></li>
+						<li><a href="/kamla/right/shuttle/5">Shuttle 5</a></li>
+						<li><a href="/kamla/right/shuttle/6">Shuttle 6</a></li>
+						<li><a href="/kamla/right/shuttle/7">Shuttle 7</a></li>
+						<li><a href="/kamla/right/shuttle/8">Shuttle 8</a></li>
+						<li><a href="/kamla/right/shuttle/9">Shuttle 9</a></li>
+						<li><a href="/kamla/right/shuttle/10">Shuttle 10</a></li>
+						<li><a href="/kamla/right/shuttle/11">Shuttle 11</a></li>
+						<li><a href="/kamla/right/shuttle/12">Shuttle 12</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-globe glyphicon-white"></span> Map <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/kamla/right/map/0">Basement B2</a></li>
+						<li><a href="/kamla/right/map/1">Basement B3</a></li>
+						<li><a href="/kamla/right/map/2">Basement B4</a></li>
+						<li><a href="/kamla/right/map/3">Basement B5</a></li>
+						<li><a href="/kamla/right/map/4">Basement B6</a></li>
+						<li><a href="/kamla/right/map/5">Basement B7</a></li>
+						<li class="divider"></li>
+						<li><a href="/kamla/right/map_size/0">Map Size</a></li>
+						<li class="divider"></li>
+						<li><a href="/kamla/right/map/statistics">Statistics</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="glyphicon glyphicon-flash glyphicon-white"></span> Plc I/O <b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/kamla/right/io/el/0">Elevator 1</a></li>
+						<li><a href="/kamla/right/io/el/1">Elevator 2</a></li>
+						<li><a href="/kamla/right/io/el/2">Elevator 3</a></li>
+						<li class="divider"></li>
+						<li><a href="/kamla/right/io/sh/0">Shuttle 1</a></li>
+						<li><a href="/kamla/right/io/sh/1">Shuttle 2</a></li>
+						<li><a href="/kamla/right/io/sh/2">Shuttle 3</a></li>
+						<li><a href="/kamla/right/io/sh/3">Shuttle 4</a></li>
+						<li><a href="/kamla/right/io/sh/4">Shuttle 5</a></li>
+						<li><a href="/kamla/right/io/sh/5">Shuttle 6</a></li>
+						<li><a href="/kamla/right/io/sh/6">Shuttle 7</a></li>
+						<li><a href="/kamla/right/io/sh/7">Shuttle 8</a></li>
+						<li><a href="/kamla/right/io/sh/8">Shuttle 9</a></li>
+						<li><a href="/kamla/right/io/sh/9">Shuttle 10</a></li>
+						<li><a href="/kamla/right/io/sh/10">Shuttle 11</a></li>
+						<li><a href="/kamla/right/io/sh/11">Shuttle 12</a></li>
+					</ul>
+				</li>
+				<li><a href="/kamla/right/history"><span class="glyphicon glyphicon-pencil glyphicon-white"></span> Logs</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-show="active"><a ng-href="{{alarmLink()}}"><span class="label label-danger" id="alarm">Alarm</span></a></li>
+				<li><a href="#"><span class="label" id="comm"></span></a></li>
+				<li><a href="/logout"><span class="glyphicon glyphicon-user glyphicon-white"></span> Logout</a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div>
+</nav>

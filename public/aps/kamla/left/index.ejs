@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include ../head %>
+		<link href="/aps/kamla/css/index.css" rel="stylesheet" media="screen">
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include ../log %>
+		<!-- Base Pagesheet -->		
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Kamla Nagar <small>Left Side &middot; New Delhi &middot; India</small></h1>
+				<p>The future of automated central parking systems.</p>
+			</div>
+		</div>
+		<div class="container">
+			
+			<h2>System Statistics <span class="glyphicon glyphicon-stats"></span></h2>
+			<p>Following some charts about the recent system activity.</p>
+			<div style="width: 50%; margin: 0 auto;">
+				<chart3></chart3>
+			</div>
+				<chart1></chart1>
+			<div>	
+				<chart2></chart2>
+			</div>
+			<div>
+				<chart4></chart4>
+			</div>	
+				
+			
+		</div> <!-- /container -->
+		<% include ../footer %>
+		<% include ../scripts %>
+		<!-- Google jsapi -->
+		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+		<script type="text/javascript" src="/aps/kamla/left/js/comm.js"></script>
+		<script type="text/javascript" src="/aps/kamla/left/js/log.js"></script>
+		<script type="text/javascript" src="/aps/kamla/left/js/index.js"></script>
+	</body>
+</html>

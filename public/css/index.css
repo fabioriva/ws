@@ -1,0 +1,14 @@
+body {
+	background-color: #CEECF5;
+}
+
+.inner-container {
+
+	min-width: 250px;
+	width: 20%;
+	margin: 0 auto;
+}
+
+.btn {
+	margin: 25px auto;
+}

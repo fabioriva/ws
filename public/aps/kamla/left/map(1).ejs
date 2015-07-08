@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include ../head %>
+		<link href="/aps/kamla/css/map.css" rel="stylesheet" media="screen">
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include ../log %>
+		<!-- Base Pagesheet -->
+		<div class="container">
+		<div class="page-header">
+			<h3>System Map Overview <small>Left Side &middot; Kamla Nagar &middot; New Delhi</small></h3>
+		</div>	
+		<ul class="nav nav-tabs" id="tab-map">
+			<li><a href="#tab-l-1" data-toggle="tab">Basement B2</a></li>
+			<li><a href="#tab-l-2" data-toggle="tab">Basement B3</a></li>
+			<li><a href="#tab-l-3" data-toggle="tab">Basement B4</a></li>
+			<li><a href="#tab-l-4" data-toggle="tab">Basement B5</a></li>
+			<li><a href="#tab-l-5" data-toggle="tab">Basement B6</a></li>
+			<li><a href="#tab-l-6" data-toggle="tab">Basement B7</a></li>
+		</ul>
+		<div class="map">
+		<div class="tab-content">			
+			<!--<div class="tab-pane fade active" id="tab-l-{{level.nr}}" ng-repeat="level in map.levels">
+				<div class="row">
+					<div class="col-md-6"><p class="text-left">Total : <span class="label label-info">{{map.spaces}}</span> spaces</p></div>
+					<div class="col-md-6"><p class="text-right">{{level.label}} : <span class="label label-info">{{level.stalls.length}}</span> spaces</p></div>
+				</div>
+				<div class="l" id="l-{{level.nr}}">
+				<span ng-repeat="stall in level.stalls">
+					<div class="s" id="s-{{stall.nr}}" title="{{stallTitle(stall.nr, stall.status, stall.date, stall.time)}}" ng-class="colors[stall.nr-1]">
+						<span class="st" ng-bind="stallHtml(stall.nr, stall.status, 0)" ng-click="stallEdit(stall.nr)"></span>
+					</div>
+				</span>
+				<div class="el" id="el-1">EL1</div>
+				<div class="el" id="el-2">EL2</div>
+				<div class="el" id="el-3">EL3</div>
+				<div class="el" id="el-4">EL4</div>
+				<div class="el" id="el-5">EL5</div>
+				<div class="el" id="el-6">EL6</div>
+				<div class="sh" id="sh-1">SH1</div>
+				<div class="sh" id="sh-2">SH2</div>
+				<div class="sh" id="sh-3">SH3</div>
+				<div class="sh" id="sh-4">SH4</div>
+				</div>
+			</div>-->
+			<!-- Basement B2 -1 -->
+			<div class="tab-pane fade" id="tab-l-1">
+				<div class="row">
+					<div class="col-md-6"><p class="text-left">Total : <span class="label label-info">{{map.spaces}}</span> spaces</p></div>
+					<div class="col-md-6"><p class="text-right">{{map.levels[0].label}} : <span class="label label-info">{{map.levels[0].stalls.length}}</span> spaces</p></div>
+				</div>
+				<div class="l" id="l-{{map.levels[0].nr}}">
+				<span ng-repeat="stall in map.levels[0].stalls">
+					<div class="s" id="s-{{stall.nr}}" title="{{stallTitle(stall.nr, stall.status, stall.date, stall.time)}}" ng-class="colors[stall.nr-1]">
+						<span class="st" ng-bind="stallHtml(stall.nr, stall.status, 0)" ng-click="stallEdit(stall.nr)"></span>
+					</div>
+				</span>
+				<div class="el" id="el-1">EL1</div>
+				<div class="el" id="el-2">EL2</div>
+				<div class="el" id="el-3">EL3</div>
+				<div class="el" id="el-4">EL4</div>
+				<div class="el" id="el-5">EL5</div>
+				<div class="el" id="el-6">EL6</div>
+				<div class="sh" id="sh-1">SH1</div>
+				<div class="sh" id="sh-2">SH2</div>
+				<div class="sh" id="sh-3">SH3</div>
+				<div class="sh" id="sh-4">SH4</div>
+				</div>
+			</div>
+			<!-- Basement B3 -2 -->
+			<div class="tab-pane fade" id="tab-l-2">
+				<div class="row">
+					<div class="col-md-6"><p class="text-left">Total : <span class="label label-info">{{map.spaces}}</span> spaces</p></div>
+					<div class="col-md-6"><p class="text-right">{{map.levels[1].label}} : <span class="label label-info">{{map.levels[1].stalls.length}}</span> spaces</p></div>
+				</div>
+				<div class="l" id="l-{{map.levels[1].nr}}">
+				<span ng-repeat="stall in map.levels[1].stalls">
+					<div class="s" id="s-{{stall.nr}}" title="{{stallTitle(stall.nr, stall.status, stall.date, stall.time)}}" ng-class="colors[stall.nr-1]">
+						<span class="st" ng-bind="stallHtml(stall.nr, stall.status, 0)" ng-click="stallEdit(stall.nr)"></span>
+					</div>
+				</span>
+				<div class="el" id="el-1">EL1</div>
+				<div class="el" id="el-2">EL2</div>
+				<div class="el" id="el-3">EL3</div>
+				<div class="el" id="el-4">EL4</div>
+				<div class="el" id="el-5">EL5</div>
+				<div class="el" id="el-6">EL6</div>
+				<div class="sh" id="sh-1">SH1</div>
+				<div class="sh" id="sh-2">SH2</div>
+				<div class="sh" id="sh-3">SH3</div>
+				<div class="sh" id="sh-4">SH4</div>
+				</div>
+			</div>
+			<!-- Basement B4 -3 -->
+			<div class="tab-pane fade" id="tab-l-3">
+				<div class="row">
+					<div class="col-md-6"><p class="text-left">Total : <span class="label label-info">{{map.spaces}}</span> spaces</p></div>
+					<div class="col-md-6"><p class="text-right">{{map.levels[2].label}} : <span class="label label-info">{{map.levels[2].stalls.length}}</span> spaces</p></div>
+				</div>
+				<div class="l" id="l-{{map.levels[2].nr}}">
+				<span ng-repeat="stall in map.levels[2].stalls">
+					<div class="s" id="s-{{stall.nr}}" title="{{stallTitle(stall.nr, stall.status, stall.date, stall.time)}}" ng-class="colors[stall.nr-1]">
+						<span class="st" ng-bind="stallHtml(stall.nr, stall.status, 0)" ng-click="stallEdit(stall.nr)"></span>
+					</div>
+				</span>
+				<div class="el" id="el-1">EL1</div>
+				<div class="el" id="el-2">EL2</div>
+				<div class="el" id="el-3">EL3</div>
+				<div class="el" id="el-4">EL4</div>
+				<div class="el" id="el-5">EL5</div>
+				<div class="el" id="el-6">EL6</div>
+				<div class="sh" id="sh-1">SH1</div>
+				<div class="sh" id="sh-2">SH2</div>
+				<div class="sh" id="sh-3">SH3</div>
+				<div class="sh" id="sh-4">SH4</div>
+				</div>
+			</div>
+			<!-- Basement B5 -4 -->
+			<div class="tab-pane fade" id="tab-l-4">
+				<div class="row">
+					<div class="col-md-6"><p class="text-left">Total : <span class="label label-info">{{map.spaces}}</span> spaces</p></div>
+					<div class="col-md-6"><p class="text-right">{{map.levels[3].label}} : <span class="label label-info">{{map.levels[3].stalls.length}}</span> spaces</p></div>
+				</div>
+				<div class="l" id="l-{{map.levels[3].nr}}">
+				<span ng-repeat="stall in map.levels[3].stalls">
+					<div class="s" id="s-{{stall.nr}}" title="{{stallTitle(stall.nr, stall.status, stall.date, stall.time)}}" ng-class="colors[stall.nr-1]">
+						<span class="st" ng-bind="stallHtml(stall.nr, stall.status, 0)" ng-click="stallEdit(stall.nr)"></span>
+					</div>
+				</span>
+				<div class="el" id="el-1">EL1</div>
+				<div class="el" id="el-2">EL2</div>
+				<div class="el" id="el-3">EL3</div>
+				<div class="el" id="el-4">EL4</div>
+				<div class="el" id="el-5">EL5</div>
+				<div class="el" id="el-6">EL6</div>
+				<div class="sh" id="sh-1">SH1</div>
+				<div class="sh" id="sh-2">SH2</div>
+				<div class="sh" id="sh-3">SH3</div>
+				<div class="sh" id="sh-4">SH4</div>
+				</div>
+			</div>
+			<!-- Basement B6 -5 -->
+			<div class="tab-pane fade" id="tab-l-5">
+				<div class="row">
+					<div class="col-md-6"><p class="text-left">Total : <span class="label label-info">{{map.spaces}}</span> spaces</p></div>
+					<div class="col-md-6"><p class="text-right">{{map.levels[4].label}} : <span class="label label-info">{{map.levels[4].stalls.length}}</span> spaces</p></div>
+				</div>
+				<div class="l" id="l-{{map.levels[4].nr}}">
+				<span ng-repeat="stall in map.levels[4].stalls">
+					<div class="s" id="s-{{stall.nr}}" title="{{stallTitle(stall.nr, stall.status, stall.date, stall.time)}}" ng-class="colors[stall.nr-1]">
+						<span class="st" ng-bind="stallHtml(stall.nr, stall.status, 0)" ng-click="stallEdit(stall.nr)"></span>
+					</div>
+				</span>
+				<div class="el" id="el-1">EL1</div>
+				<div class="el" id="el-2">EL2</div>
+				<div class="el" id="el-3">EL3</div>
+				<div class="el" id="el-4">EL4</div>
+				<div class="el" id="el-5">EL5</div>
+				<div class="el" id="el-6">EL6</div>
+				<div class="sh" id="sh-1">SH1</div>
+				<div class="sh" id="sh-2">SH2</div>
+				<div class="sh" id="sh-3">SH3</div>
+				<div class="sh" id="sh-4">SH4</div>
+				</div>
+			</div>
+			<!-- Basement B7 -6 -->
+			<div class="tab-pane fade" id="tab-l-6">
+				<div class="row">
+					<div class="col-md-6"><p class="text-left">Total : <span class="label label-info">{{map.spaces}}</span> spaces</p></div>
+					<div class="col-md-6"><p class="text-right">{{map.levels[5].label}} : <span class="label label-info">{{map.levels[5].stalls.length}}</span> spaces</p></div>
+				</div>
+				<div class="l" id="l-{{map.levels[5].nr}}">
+				<span ng-repeat="stall in map.levels[5].stalls">
+					<div class="s" id="s-{{stall.nr}}" title="{{stallTitle(stall.nr, stall.status, stall.date, stall.time)}}" ng-class="colors[stall.nr-1]">
+						<span class="st" ng-bind="stallHtml(stall.nr, stall.status, 0)" ng-click="stallEdit(stall.nr)"></span>
+					</div>
+				</span>
+				<div class="el" id="el-1">EL1</div>
+				<div class="el" id="el-2">EL2</div>
+				<div class="el" id="el-3">EL3</div>
+				<div class="el" id="el-4">EL4</div>
+				<div class="el" id="el-5">EL5</div>
+				<div class="el" id="el-6">EL6</div>
+				<div class="sh" id="sh-1">SH1</div>
+				<div class="sh" id="sh-2">SH2</div>
+				<div class="sh" id="sh-3">SH3</div>
+				<div class="sh" id="sh-4">SH4</div>
+				</div>
+			</div>
+		</div>
+		<label class="checkbox-inline">
+			<input type="checkbox" id="view1" ng-model="view1" ng-change="changeView(1)" ng-checked="view1" /> Show numbers
+		</label>
+		<label class="checkbox-inline">
+			<input type="checkbox" id="view2" ng-model="view2" ng-change="changeView(2)" ng-checked="view2" /> Show cards
+		</label>
+		</div>	
+		
+		<div class="modal fade" id="edit-map-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Edit stall</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form" role="form">
+							<div class="form-group">
+								<label for="map-edit-stall">Stall number :</label>
+								<input type="number" name="stall-nr" min="1" max="912" class="form-control" id="map-edit-stall" disabled>
+							</div>
+							<div class="form-group">
+								<label for="map-edit-card">Card number :</label>
+								<input type="number" name="card-nr" min="1" max="9999" class="form-control" id="map-edit-card" placeholder="Enter card number ( 1 - 9999 )">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" disabled="disabled" id="map-edit-btn" ng-click="stallCard()">Card</button>
+						<button type="button" class="btn btn-primary" disabled="disabled" id="map-edit-clr" ng-click="stallClear()">Clear</button>
+						<button type="button" class="btn btn-primary" disabled="disabled" id="map-edit-lck" ng-click="stallLock()">Lock</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		</div> <!-- /container -->
+		<% include ../footer %>
+		<% include ../scripts %>
+		<script type="text/javascript" src="/aps/kamla/left/js/comm.js"></script>
+		<script type="text/javascript" src="/aps/kamla/left/js/log.js"></script>
+		<script type="text/javascript" src="/aps/kamla/left/js/map.js"></script>
+		<script type="text/javascript">activeTab('tab-map', <%= tab_active %>);</script>
+	</body>
+</html>

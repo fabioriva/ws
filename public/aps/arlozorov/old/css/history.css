@@ -1,0 +1,16 @@
+.table {
+	font-size: smaller;
+}
+
+.alarm-popover {
+	cursor: pointer;
+}
+
+.popover-title {
+    color: #000000;
+}
+
+.popover-content {
+    color: #999999;
+	font-size: larger;
+}

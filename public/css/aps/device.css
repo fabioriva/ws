@@ -1,0 +1,79 @@
+.panel-heading {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.panel-body-left {
+	font-size: 14px;
+}
+
+.panel-body-right {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.panel-footer {
+	position: relative;
+	font-size: 16px;
+	font-weight: bold;
+	height: 40px;
+}
+
+.message-box {
+	overflow-y: scroll;
+	height: 154px;
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+	font-size: 12px;
+}
+
+.alarm-message-box {
+	overflow-y: scroll;
+	height: 154px;
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+	font-size: 12px;
+}
+
+
+/*.nav-pills > li.active > .red {
+  background-image: linear-gradient(to bottom,#d9534f 0,#c12e2a 100%);
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffd9534f', endColorstr='#ffc12e2a', GradientType=0);
+  filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
+  background-repeat: repeat-x;
+  border-color: #b92c28;
+}*/
+
+/*.table tbody > tr > td { border-bottom: 1px solid #ddd; }*/
+
+.table { border-top: 1px solid #ddd; }
+
+/*.red .active a,
+.red .active a:hover {
+    background-color: red;
+}
+
+.nav-pills > .active > a, .nav-pills > .active > a:hover {
+    background-color: red;
+}*/
+
+.nav-pills-danger > li.active > a {
+	background-color: #d9534f;
+}
+.nav-pills-danger > li.active > a:hover {
+	background-color: #d9534f;
+}
+
+/* Struttura, font, colori, arrotondamento */
+.badge-danger {
+  display: inline-block;
+  min-width: 10px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  line-height: 1;
+  color: #ffffff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #d9534f;
+  border-radius: 10px;
+}

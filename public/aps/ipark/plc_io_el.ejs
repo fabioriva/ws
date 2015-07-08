@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include head %>
+		<link href="/aps/ipark/css/plc_io_el.css" rel="stylesheet" media="screen">
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include log %>
+		<!-- Base Pagesheet -->
+		<div class="container">
+		<div class="page-header">
+			<h3>PLC Digital I/O <small>I-Park &middot; Florianopolis &middot; Brasil</small></h3>
+		</div>
+		<div class="bs-callout bs-callout-info">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<h4>Digital Input/Output overview</h4>
+			<p>The I/O status is automatically updated. <strong>Tip</strong> : Hover on the label to get additional informations.</p>
+		</div>
+		<br>
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs" id="tab-io">
+			<li><a href="#tab-io-el1" data-toggle="tab">Elevator 1</a></li>
+			<li><a href="#tab-io-el2" data-toggle="tab">Elevator 2</a></li>
+			<li><a href="#tab-io-el3" data-toggle="tab">Elevator 3</a></li>
+			<li><a href="#tab-io-el4" data-toggle="tab">Elevator 4</a></li>
+		</ul>
+		<div class="io">
+		<div class="tab-content">
+			<div class="tab-pane fade" id="tab-io-el1">			
+				<div class="rack" id="r01">
+					<span bindonce ng-repeat="card in rack_el1">
+					<div class="card-et200s" bo-id="'r01c0'+ card.nr">
+						<div class="title-et200s">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="label-et200s" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type-et200s">{{card.type}}</div>
+					</div>
+					</span>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="tab-io-el2">			
+				<div class="rack" id="r02">
+					<span bindonce ng-repeat="card in rack_el2">
+					<div class="card-et200s" bo-id="'r02c0'+ card.nr">
+						<div class="title-et200s">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="label-et200s" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type-et200s" ng-bind="card.type"></div>
+					</div>
+					</span>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="tab-io-el3">			
+				<div class="rack" id="r03">
+					<span bindonce ng-repeat="card in rack_el3">
+					<div class="card-et200s" bo-id="'r03c0'+ card.nr">
+						<div class="title-et200s">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="label-et200s" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type-et200s" ng-bind="card.type"></div>
+					</div>
+					</span>
+				</div>
+			</div>
+			<div class="tab-pane fade" id="tab-io-el4">			
+				<div class="rack" id="r04">
+					<span bindonce ng-repeat="card in rack_el4">
+					<div class="card-et200s" bo-id="'r04c0'+ card.nr">
+						<div class="title-et200s">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="label-et200s" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type-et200s" ng-bind="card.type"></div>
+					</div>
+					</span>
+				</div>
+			</div>
+		</div>
+		</div> <!-- /io AngularJS PlcioCtrl-->
+		</div> <!-- /container -->
+		<% include footer %>
+		<% include scripts %>
+		<script type="text/javascript">activeTab('tab-io', <%= tab_active %>);</script>
+		<script type="text/javascript" src="/js/bindonce.js"></script>
+		<script type="text/javascript" src="/aps/ipark/js/plc_io_el.js"></script>
+	</body>
+</html>

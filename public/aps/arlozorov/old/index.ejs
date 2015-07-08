@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include head %>
+		<link href="/aps/arlozorov/css/index.css" rel="stylesheet" media="screen">
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include log %>
+		<!-- Base Pagesheet -->		
+		<div class="jumbotron">
+			<div class="container">
+				<h1>Arlozorov <small>Tel Aviv &middot; Israel</small></h1>
+				<p>The future of automated central parking systems.</p>
+			</div>
+		</div>
+		<div class="container">
+		
+			<div class="alert alert-danger" role="alert">
+			<strong>Info: </strong>This service is under update. Currently some functionalities are not available.
+			</div>
+			<h2>Company Overview</h2>
+			<p>Sotefin SA, thanks to its series of products, is able to satisfy almost every need: from small to large installations for fixed and casual users. Our systems guarantee high performance in extremely limited spaces, user-friendliness and easy maintenance, security and reliability.</p>
+			<p>Sotefin products can satisfy almost all requirements relating to size and performance. In particular, the great versatility of Sotefin products allows parking systems to be developed practically "made to measure" both for new buildings and buildings needing renovation. <a href="http://www.sotefin.com" role="button">Learn more &raquo;</a></p>
+			<!--<p class="text-center" style="margin: 80px auto;"><a href="#p1"><span class="glyphicon glyphicon-chevron-down"></span></a></p>-->
+			<div id="p1">
+				<h2>System Statistics <span class="glyphicon glyphicon-stats"></span></h2>
+				<p>Following some charts about the recent system activity.</p>
+				<div style="width: 50%; margin: 0 auto;">
+					<chart3></chart3>
+				</div>
+					<chart1></chart1>
+				<div>	
+					<chart2></chart2>
+				</div>
+				<div>
+					<chart4></chart4>
+				</div>					
+			</div>
+		</div> <!-- /container -->
+		<% include footer %>
+		<% include scripts %>
+		<script type="text/javascript" src="//www.google.com/jsapi"></script>
+		<script type="text/javascript" src="/aps/arlozorov/js/comm.js"></script>
+		<script type="text/javascript" src="/aps/arlozorov/js/log.js"></script>
+		<script type="text/javascript" src="/aps/arlozorov/js/index.js"></script>
+	</body>
+</html>

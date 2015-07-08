@@ -1,0 +1,418 @@
+@screen-lg-min: 1200px;
+@screen-md-min: 992px;
+@screen-sm-min: 768px;
+
+@img-lg-height: 424px;
+@img-md-height: 353px;
+@img-sm-height: 282px;
+@img-xs-height: 212px;
+
+@img-lg-width: 960px;
+@img-md-width: 800px;
+@img-sm-width: 640px;
+@img-xs-width: 480px;
+
+/* Info */
+.info-container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;	/*640px;*/
+}
+.col-1 {
+	padding-left: 10px !important;
+	width: 35%;
+}
+.col-2 {
+	width: 15%;
+}
+.col-3 {
+	width: 25%;
+}
+.col-4 {
+	width: 25%;
+}
+.hide {
+	display: none;
+}
+
+.sensor {
+	position: absolute;
+    height: 18px;
+    width: 18px;
+	border: 1px solid #000;
+    -moz-border-radius:50%;
+    -webkit-border-radius: 50%;
+	border-radius: 50%;
+	cursor: pointer;
+	background-color: #c0c0c0;
+}
+.sensor-off {
+	background-color: #e3f6ce;	/* green */
+	background-color: #f5f6ce;  /* yellow */
+}
+.sensor-on {
+	background-color: #00ff00;	/* green */
+	background-color: #ffff00;	/* yellow */
+}
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+#shuttle {
+	position: relative;
+	margin: 50px auto;	/* center div */
+	background-repeat: no-repeat;
+	background-image: url("/aps/arlozorov/img/shuttle-xs.jpg");
+	height: 212px;
+	width: 480px;
+}
+#EPZV {
+	left: (185px * @img-xs-width) / @img-lg-width;
+	top: (70px * @img-xs-height) / @img-lg-height;
+}
+#EPZH {
+	left: (225px * @img-xs-width) / @img-lg-width;
+	top: (70px * @img-xs-height) / @img-lg-height;
+}
+#FTXV {
+	left: (0px * @img-xs-width) / @img-lg-width;
+	top: (205px * @img-xs-height) / @img-lg-height;
+}
+#FTXH {
+	left: (945px * @img-xs-width) / @img-lg-width;
+	top: (205px * @img-xs-height) / @img-lg-height;
+}
+#FEMV-E {
+	left: (70px * @img-xs-width) / @img-lg-width;
+	top: (110px * @img-xs-height) / @img-lg-height;
+}
+#FEMV-R {
+	left: (70px * @img-xs-width) / @img-lg-width;
+	top: (290px * @img-xs-height) / @img-lg-height;
+}
+#FEMH-E {
+	left: (900px * @img-xs-width) / @img-lg-width;
+	top: (110px * @img-xs-height) / @img-lg-height;
+}
+#FEMH-R {
+	left: (900px * @img-xs-width) / @img-lg-width;
+	top: (290px * @img-xs-height) / @img-lg-height;
+}
+#ECA {
+	left: (100px * @img-xs-width) / @img-lg-width;
+	top: (30px * @img-xs-height) / @img-lg-height;
+}
+#ECB {
+	left: (130px * @img-xs-width) / @img-lg-width;
+	top: (30px * @img-xs-height) / @img-lg-height;
+}
+#MV {
+	left: (400px * @img-xs-width) / @img-lg-width;
+	top: (125px * @img-xs-height) / @img-lg-height;
+}
+#MH {
+	left: (440px * @img-xs-width) / @img-lg-width;
+	top: (125px * @img-xs-height) / @img-lg-height;
+}
+#ES {
+	left: (445px * @img-xs-width) / @img-lg-width;
+	top: (200px * @img-xs-height) / @img-lg-height;
+}
+#EH {
+	left: (485px * @img-xs-width) / @img-lg-width;
+	top: (200px * @img-xs-height) / @img-lg-height;
+}
+#EAL {
+	left: (205px * @img-xs-width) / @img-lg-width;
+	top: (270px * @img-xs-height) / @img-lg-height;
+}
+#EAR {
+	left: (205px * @img-xs-width) / @img-lg-width;
+	top: (135px * @img-xs-height) / @img-lg-height;
+}
+#EPL {
+	left: (650px * @img-xs-width) / @img-lg-width;
+	top: (270px * @img-xs-height) / @img-lg-height;
+}
+#EPR {
+	left: (650px * @img-xs-width) / @img-lg-width;
+	top: (135px * @img-xs-height) / @img-lg-height;
+}
+#EBV {
+	left: (205px * @img-xs-width) / @img-lg-width;
+	top: (200px * @img-xs-height) / @img-lg-height;
+}
+#EBH {
+	left: (750px * @img-xs-width) / @img-lg-width;
+	top: (200px * @img-xs-height) / @img-lg-height;
+}
+
+/* Small devices (tablets, 768px and up) */
+
+@media (min-width: @screen-sm-min) {
+	#shuttle {
+		background-image: url("/aps/arlozorov/img/shuttle-sm.jpg");
+		height: 282px;
+		width: 640px;
+	}
+	#EPZV {
+		left: (185px * @img-sm-width) / @img-lg-width;
+		top: (70px * @img-sm-height) / @img-lg-height;
+	}
+	#EPZH {
+		left: (225px * @img-sm-width) / @img-lg-width;
+		top: (70px * @img-sm-height) / @img-lg-height;
+	}
+	#FTXV {
+		left: (0px * @img-sm-width) / @img-lg-width;
+		top: (205px * @img-sm-height) / @img-lg-height;
+	}
+	#FTXH {
+		left: (945px * @img-sm-width) / @img-lg-width;
+		top: (205px * @img-sm-height) / @img-lg-height;
+	}
+	#FEMV-E {
+		left: (70px * @img-sm-width) / @img-lg-width;
+		top: (110px * @img-sm-height) / @img-lg-height;
+	}
+	#FEMV-R {
+		left: (70px * @img-sm-width) / @img-lg-width;
+		top: (290px * @img-sm-height) / @img-lg-height;
+	}
+	#FEMH-E {
+		left: (900px * @img-sm-width) / @img-lg-width;
+		top: (110px * @img-sm-height) / @img-lg-height;
+	}
+	#FEMH-R {
+		left: (900px * @img-sm-width) / @img-lg-width;
+		top: (290px * @img-sm-height) / @img-lg-height;
+	}
+	#ECA {
+		left: (100px * @img-sm-width) / @img-lg-width;
+		top: (30px * @img-sm-height) / @img-lg-height;
+	}
+	#ECB {
+		left: (130px * @img-sm-width) / @img-lg-width;
+		top: (30px * @img-sm-height) / @img-lg-height;
+	}
+	#MV {
+		left: (400px * @img-sm-width) / @img-lg-width;
+		top: (125px * @img-sm-height) / @img-lg-height;
+	}
+	#MH {
+		left: (440px * @img-sm-width) / @img-lg-width;
+		top: (125px * @img-sm-height) / @img-lg-height;
+	}
+	#ES {
+		left: (445px * @img-sm-width) / @img-lg-width;
+		top: (200px * @img-sm-height) / @img-lg-height;
+	}
+	#EH {
+		left: (485px * @img-sm-width) / @img-lg-width;
+		top: (200px * @img-sm-height) / @img-lg-height;
+	}
+	#EAL {
+		left: (205px * @img-sm-width) / @img-lg-width;
+		top: (270px * @img-sm-height) / @img-lg-height;
+	}
+	#EAR {
+		left: (205px * @img-sm-width) / @img-lg-width;
+		top: (135px * @img-sm-height) / @img-lg-height;
+	}
+	#EPL {
+		left: (650px * @img-sm-width) / @img-lg-width;
+		top: (270px * @img-sm-height) / @img-lg-height;
+	}
+	#EPR {
+		left: (650px * @img-sm-width) / @img-lg-width;
+		top: (135px * @img-sm-height) / @img-lg-height;
+	}
+	#EBV {
+		left: (205px * @img-sm-width) / @img-lg-width;
+		top: (200px * @img-sm-height) / @img-lg-height;
+	}
+	#EBH {
+		left: (750px * @img-sm-width) / @img-lg-width;
+		top: (200px * @img-sm-height) / @img-lg-height;
+	}
+}
+
+/* Medium devices (desktops, 992px and up) */
+
+@media (min-width: @screen-md-min) {
+	#shuttle {
+		background-image: url("/aps/arlozorov/img/shuttle-md.jpg");
+		height: 353px;
+		width: 800px;
+	}
+	#EPZV {
+		left: (185px * @img-md-width) / @img-lg-width;
+		top: (70px * @img-md-height) / @img-lg-height;
+	}
+	#EPZH {
+		left: (225px * @img-md-width) / @img-lg-width;
+		top: (70px * @img-md-height) / @img-lg-height;
+	}
+	#FTXV {
+		left: (0px * @img-md-width) / @img-lg-width;
+		top: (205px * @img-md-height) / @img-lg-height;
+	}
+	#FTXH {
+		left: (945px * @img-md-width) / @img-lg-width;
+		top: (205px * @img-md-height) / @img-lg-height;
+	}
+	#FEMV-E {
+		left: (70px * @img-md-width) / @img-lg-width;
+		top: (110px * @img-md-height) / @img-lg-height;
+	}
+	#FEMV-R {
+		left: (70px * @img-md-width) / @img-lg-width;
+		top: (290px * @img-md-height) / @img-lg-height;
+	}
+	#FEMH-E {
+		left: (900px * @img-md-width) / @img-lg-width;
+		top: (110px * @img-md-height) / @img-lg-height;
+	}
+	#FEMH-R {
+		left: (900px * @img-md-width) / @img-lg-width;
+		top: (290px * @img-md-height) / @img-lg-height;
+	}
+	#ECA {
+		left: (100px * @img-md-width) / @img-lg-width;
+		top: (30px * @img-md-height) / @img-lg-height;
+	}
+	#ECB {
+		left: (130px * @img-md-width) / @img-lg-width;
+		top: (30px * @img-md-height) / @img-lg-height;
+	}
+	#MV {
+		left: (400px * @img-md-width) / @img-lg-width;
+		top: (125px * @img-md-height) / @img-lg-height;
+	}
+	#MH {
+		left: (440px * @img-md-width) / @img-lg-width;
+		top: (125px * @img-md-height) / @img-lg-height;
+	}
+	#ES {
+		left: (445px * @img-md-width) / @img-lg-width;
+		top: (200px * @img-md-height) / @img-lg-height;
+	}
+	#EH {
+		left: (485px * @img-md-width) / @img-lg-width;
+		top: (200px * @img-md-height) / @img-lg-height;
+	}
+	#EAL {
+		left: (205px * @img-md-width) / @img-lg-width;
+		top: (270px * @img-md-height) / @img-lg-height;
+	}
+	#EAR {
+		left: (205px * @img-md-width) / @img-lg-width;
+		top: (135px * @img-md-height) / @img-lg-height;
+	}
+	#EPL {
+		left: (650px * @img-md-width) / @img-lg-width;
+		top: (270px * @img-md-height) / @img-lg-height;
+	}
+	#EPR {
+		left: (650px * @img-md-width) / @img-lg-width;
+		top: (135px * @img-md-height) / @img-lg-height;
+	}
+	#EBV {
+		left: (205px * @img-md-width) / @img-lg-width;
+		top: (200px * @img-md-height) / @img-lg-height;
+	}
+	#EBH {
+		left: (750px * @img-md-width) / @img-lg-width;
+		top: (200px * @img-md-height) / @img-lg-height;
+	}
+}
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+	
+	#shuttle {
+		background-image: url("/aps/arlozorov/img/shuttle-lg.jpg");
+		height: 424px;
+		width: 960px;
+	}
+	#EPZV {
+		left: 185px;
+		top: 70px;
+	}
+	#EPZH {
+		left: 225px;
+		top: 70px;
+	}
+	#FTXV {
+		left: 0px;
+		top: 205px;
+	}
+	#FTXH {
+		left: 945px;
+		top: 205px;
+	}
+	#FEMV-E {
+		left: 70px;
+		top: 110px;
+	}
+	#FEMV-R {
+		left: 70px;
+		top: 290px;
+	}
+	#FEMH-E {
+		left: 900px;
+		top: 110px;
+	}
+	#FEMH-R {
+		left: 900px;
+		top: 290px;
+	}
+	#MV {
+		left: 400px;
+		top: 125px;
+	}
+	#MH {
+		left: 440px;
+		top: 125px;
+	}
+	#ES {
+		left: 445px;
+		top: 200px;
+	}
+	#EH {
+		left: 485px;
+		top: 200px;
+	}
+	#EAL {
+		left: 205px;
+		top: 270px;
+	}
+	#EAR {
+		left: 205px;
+		top: 135px;
+	}
+	#EPL {
+		left: 650px;
+		top: 270px;
+	}
+	#EPR {
+		left: 650px;
+		top: 135px;
+	}
+	#EBV {
+		left: 205px;
+		top: 200px;
+	}
+	#EBH {
+		left: 750px;
+		top: 200px;
+	}
+	#ECA {
+		left: 100px;
+		top: 30px;
+	}
+	#ECB {
+		left: 130px;
+		top: 30px;
+	}
+}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include head %>
+		<link href="/aps/arlozorov/css/alarm.css" rel="stylesheet" media="screen">
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include log %>
+		<!-- Base Pagesheet -->
+		<div class="container">
+		<div class="page-header">
+			<h3>System Diagnostic <small>Arlozorov &middot; Tel Aviv &middot; Israel</small></h3>
+		</div>		
+		<div class="al-container">
+			<h4 style="color: #d9534f; padding: 10px 0 0 18px;">Active alarms</h4>
+			<div id="al-log-container">
+				<div>
+					<span id="al<%= al_id %>" style="font-family: monospace;" ng-bind-html="al_<%= al_id %>.msg"></span>
+				</div>
+			</div>
+		</div>
+		<!-- nav-pills -->
+		<ul class="nav nav-pills">
+			<% if(al_id == 1) { %>
+			<li class="active">
+			<% } else { %>
+			<li>
+			<% } %>
+				<a href="../alarm/1"><span class="badge pull-right" ng-bind="al_1.active"></span>Elevator</a>
+			</li>
+			<% if(al_id == 2) { %>
+			<li class="active">
+			<% } else { %>
+			<li>
+			<% } %>
+				<a href="../alarm/2"><span class="badge pull-right" ng-bind="al_2.active"></span>Shuttle</a>
+			</li>
+			<% if(al_id == 3) { %>
+			<li class="active">
+			<% } else { %>
+			<li>
+			<% } %>
+				<a href="../alarm/3"><span class="badge pull-right" ng-bind="al_3.active"></span>Outer</a>
+			</li>
+		</ul>
+		
+		</div> <!-- /container -->
+		<% include footer %>
+		<% include scripts %>
+		<script type="text/javascript" src="/aps/arlozorov/js/alarm.js"></script>
+	</body>
+</html>

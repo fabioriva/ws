@@ -1,0 +1,277 @@
+body::before {
+  content: "xs";
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9999999;
+  background-color: #000;
+  color: #fff;
+}
+@media (min-width : 768px) { body::before { content: "sm"; }}
+@media (min-width : 992px) { body::before { content: "md"; }}
+@media (min-width : 1200px) { body::before { content: "lg"; }}
+
+/* Info */
+.info-container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;	/*640px;*/
+}
+.col-1 {
+	padding-left: 10px !important;
+	width: 35%;
+}
+.col-2 {
+	width: 15%;
+}
+.col-3 {
+	width: 25%;
+}
+.col-4 {
+	width: 25%;
+}
+.hide {
+	display: none;
+}
+/* Sensors */
+.sensor {
+  position: absolute;
+  height: 18px;
+  width: 18px;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  cursor: pointer;
+  background-color: #c0c0c0;
+}
+.sensor-off {
+  background-color: #e3f6ce;
+}
+.sensor-on {
+  background-color: #00ff00;
+}
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+#shuttle {
+  position: relative;
+  margin: 50px auto;
+  /* center div */
+  background-repeat: no-repeat;
+  background-image: url("/aps/arlozorov/img/shuttle-xs.jpg");
+  height: 212px;
+  width: 480px;
+}
+
+#FTXV { left: 0px; top: 95px; }
+#FTXH { left: 470px; top: 95px; }
+
+#FEMV-E { left: 50px; top: 150px; }
+#FEMV-R { left: 50px; top: 44px; }
+#FEMH-E { left: 420px; top: 150px; }
+#FEMH-R { left: 420px; top: 44px; }
+
+#MV {
+  left: 200px;
+  top: 62.5px;
+}
+#MH {
+  left: 220px;
+  top: 62.5px;
+}
+#ES {
+  left: 222.5px;
+  top: 100px;
+}
+#EH {
+  left: 242.5px;
+  top: 100px;
+}
+#EAL {
+  left: 102.5px;
+  top: 135px;
+}
+#EAR {
+  left: 102.5px;
+  top: 67.5px;
+}
+#EPL {
+  left: 325px;
+  top: 135px;
+}
+#EPR {
+  left: 325px;
+  top: 67.5px;
+}
+#EBV {
+  left: 102.5px;
+  top: 100px;
+}
+#EBH {
+  left: 375px;
+  top: 100px;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  #shuttle {
+    background-image: url("/aps/arlozorov/img/shuttle-sm.jpg");
+    height: 282px;
+    width: 640px;
+  }
+  #FTXV { left: 195px; top: 248px; }
+  #FTXH { left: 910px; top: 248px; }
+
+  #FEMV-E { left: 215px; top: 165px; }
+  #FEMV-R { left: 215px; top: 335px; }
+  #FEMH-E { left: 895px; top: 165px; }
+  #FEMH-R { left: 895px; top: 335px; }
+  #MV {
+    left: 266.66666667px;
+    top: 83.13679245px;
+  }
+  #MH {
+    left: 293.33333333px;
+    top: 83.13679245px;
+  }
+  #ES {
+    left: 296.66666667px;
+    top: 133.01886792px;
+  }
+  #EH {
+    left: 323.33333333px;
+    top: 133.01886792px;
+  }
+  #EAL {
+    left: 136.66666667px;
+    top: 179.5754717px;
+  }
+  #EAR {
+    left: 136.66666667px;
+    top: 89.78773585px;
+  }
+  #EPL {
+    left: 433.33333333px;
+    top: 179.5754717px;
+  }
+  #EPR {
+    left: 433.33333333px;
+    top: 89.78773585px;
+  }
+  #EBV {
+    left: 136.66666667px;
+    top: 133.01886792px;
+  }
+  #EBH {
+    left: 500px;
+    top: 133.01886792px;
+  }
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  #shuttle {
+    background-image: url("/aps/arlozorov/img/shuttle-md.jpg");
+    height: 353px;
+    width: 800px;
+  }
+  #FTXV { left: 195px; top: 248px; }
+  #FTXH { left: 910px; top: 248px; }
+
+  #FEMV-E { left: 215px; top: 165px; }
+  #FEMV-R { left: 215px; top: 335px; }
+  #FEMH-E { left: 895px; top: 165px; }
+  #FEMH-R { left: 895px; top: 335px; }
+  #MV {
+    left: 333.33333333px;
+    top: 104.06839623px;
+  }
+  #MH {
+    left: 366.66666667px;
+    top: 104.06839623px;
+  }
+  #ES {
+    left: 370.83333333px;
+    top: 166.50943396px;
+  }
+  #EH {
+    left: 404.16666667px;
+    top: 166.50943396px;
+  }
+  #EAL {
+    left: 170.83333333px;
+    top: 224.78773585px;
+  }
+  #EAR {
+    left: 170.83333333px;
+    top: 112.39386792px;
+  }
+  #EPL {
+    left: 541.66666667px;
+    top: 224.78773585px;
+  }
+  #EPR {
+    left: 541.66666667px;
+    top: 112.39386792px;
+  }
+  #EBV {
+    left: 170.83333333px;
+    top: 166.50943396px;
+  }
+  #EBH {
+    left: 625px;
+    top: 166.50943396px;
+  }
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  #shuttle {
+    background-image: url("/aps/arlozorov/img/shuttle-lg.jpg");
+    height: 424px;
+    width: 960px;
+  }
+  #FTXV { left: 0px; top: 205px; }
+  #FTXH { left: 945px; top: 205px; }
+
+  #FEMV-E { left: 70px; top: 110px; }
+  #FEMV-R { left: 70px; top: 290px; }
+  #FEMH-E { left: 900px; top: 110px; }
+  #FEMH-R { left: 900px; top: 290px; }
+  #MV {
+    left: 400px;
+    top: 125px;
+  }
+  #MH {
+    left: 440px;
+    top: 125px;
+  }
+  #ES {
+    left: 445px;
+    top: 200px;
+  }
+  #EH {
+    left: 485px;
+    top: 200px;
+  }
+  #EAL {
+    left: 205px;
+    top: 270px;
+  }
+  #EAR {
+    left: 205px;
+    top: 135px;
+  }
+  #EPL {
+    left: 650px;
+    top: 270px;
+  }
+  #EPR {
+    left: 650px;
+    top: 135px;
+  }
+  #EBV {
+    left: 205px;
+    top: 200px;
+  }
+  #EBH {
+    left: 750px;
+    top: 200px;
+  }
+}

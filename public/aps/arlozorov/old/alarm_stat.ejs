@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include head %>
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include log %>
+		<!-- Base Pagesheet -->
+		<div class="container">
+			<div class="page-header">
+				<h3>Alarm Statistics <small>Arlozorov &middot; Tel Aviv &middot; Israel</small></h3>
+			</div>
+			
+			<div style="width: 800px; margin-left: auto; margin-right: auto">
+				<chart1></chart1>
+			</div>
+			
+			<div style="width: 800px; margin-left: auto; margin-right: auto">
+				<chart2></chart2>
+			</div>
+			
+		</div> <!-- /container -->
+		<% include footer %>
+		<% include scripts %>
+		<!-- Google jsapi -->
+		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+		<script type="text/javascript" src="/aps/arlozorov/js/alarm_stat.js"></script>
+		<script type="text/javascript" src="/aps/arlozorov/tmp/zingchart/html5_scripts/zingchart-html5-min.js"></script>
+	</body>
+</html>

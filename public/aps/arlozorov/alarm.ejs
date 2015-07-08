@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html >
+	<head>
+		<% include ../head %>
+		<link href="/css/aps/device.css" rel="stylesheet" media="screen">
+	</head>
+	<body >
+		<% include navbar %>
+		<% include ../log %>
+		<!-- Base Pagesheet -->
+		<div class="container">
+			<div class="page-header">
+				<h3>System Alarms <small>Arlozorov &middot; Tel Aviv &middot; Israel</small></h3>
+			</div>
+			<p>Following some details about the recent system alarms activity.</p>
+			<div class="row">
+				<!-- Message Box -->
+				<div class="col-md-10">
+					<div class="panel panel-default">
+						<div class="panel-heading text-center device-heading">Alarm Message Box</div>
+						<div class="panel-body alarm-message-box"></div>
+						<div class="panel-footer device-footer">
+							<span class="fa fa-warning" style="color: #d9534f;"></span>
+						</div>
+					</div>
+					<label class="checkbox-inline"><input type="checkbox" id="log1" checked />Elevator</label>
+					<label class="checkbox-inline"><input type="checkbox" id="log2" checked />Shuttle</label>
+					<label class="checkbox-inline"><input type="checkbox" id="log3" checked />Silomat</label>
+					<label class="checkbox-inline"><input type="checkbox" id="log4" checked />Garage</label>
+				</div>
+				<div class="col-md-2">
+					<ul class="nav nav-pills nav-stacked">
+						<li role="presentation" ><a href="/arlozorov/elevator">Elevator <span class="badge-danger pull-right" id="count1">0</span></a></li>
+						<li role="presentation" ><a href="/arlozorov/shuttle">Shuttle <span class="badge-danger pull-right" id="count2">0</span></a></li>
+						<li role="presentation" ><a href="/arlozorov/silomat">Silomat&reg; <span class="badge-danger pull-right" id="count3">0</span></a></li>
+						<li role="presentation" ><a href="/arlozorov/garage">Garage <span class="badge-danger pull-right" id="count4">0</span></a></li>
+					</ul>
+					<!-- <p><a class="btn btn-danger btn-block" href="/arlozorov/elevator" role="button">Elevator<span class="badge pull-right" id="count1">0</span></a></p>
+					<p><a class="btn btn-danger btn-block" href="/arlozorov/shuttle" role="button">Shuttle<span class="badge pull-right" id="count2">0</span></a></p>
+					<p><a class="btn btn-danger btn-block" href="/arlozorov/silomat" role="button">Silomat<span class="badge pull-right" id="count3">0</span></a></p>
+					<p><a class="btn btn-danger btn-block" href="/arlozorov/garage" role="button">Garage<span class="badge pull-right" id="count4">0</span></a></p> -->
+				</div>
+			</div>
+		</div> <!-- /container -->
+		<% include ../../footer %>
+		<% include ../../scripts %>
+		<% include ../scripts %>
+		<% include scripts %>
+		<script type="text/javascript" src="/js/aps/arlozorov/alarm.js"></script>
+	</body>
+</html>

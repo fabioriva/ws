@@ -1,0 +1,111 @@
+/* Info */
+.info-container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;	/*640px;*/
+}
+.col-1 {
+	padding-left: 10px !important;
+	width: 35%;
+}
+.col-2 {
+	width: 15%;
+}
+.col-3 {
+	width: 25%;
+}
+.col-4 {
+	width: 25%;
+}
+.hide {
+	display: none;
+}
+/* Sensors */
+.l {
+	position: absolute;
+    height: 20px;
+    width: 20px;
+    -moz-border-radius:5px;
+    -webkit-border-radius: 5px;
+    border-radius: 13px;
+	cursor: pointer;
+}
+
+.l-false
+{
+	background-color: #e3f6ce;
+	/*display: none;*/
+}
+.l-true
+{
+	background-color: #00ff00;
+}
+#EXPV { left: 316px; top: 50px; }
+#EFB { left: 340px; top: 50px; }
+#EXV { left: 364px; top: 50px; }
+
+#EOM { left: 485px; top: 70px; }
+#EZM { left: 620px; top: 70px; }
+
+#FTXV { left: 205px; top: 242px; }
+#FTXH { left: 900px; top: 242px; }
+
+#FEMV-E { left: 240px; top: 150px; }
+#FEMV-R { left: 240px; top: 330px; }
+#FEMH-E { left: 870px; top: 150px; }
+#FEMH-R { left: 870px; top: 330px; }
+
+#MV { left: 500px; top: 175px; }
+#MH { left: 525px; top: 175px; }
+
+#ES { left: 515px; top: 242px; }
+#EH { left: 555px; top: 242px; }
+
+#EAL { left: 345px; top: 345px; }
+#EAR { left: 345px; top: 140px; }
+#EPL { left: 680px; top: 345px; }
+#EPR { left: 680px; top: 140px; }
+
+#EBV { left: 345px; top: 242px; }
+#EBH { left: 742px; top: 242px; }
+
+/*
+#MV { left: 500px; top: 135px; }
+#MH { left: 525px; top: 135px; }
+
+#ES { left: 535px; top: 190px; }
+#EH { left: 565px; top: 190px; }
+
+#EAL { left: 325px; top: 320px; }
+#EAR { left: 325px; top: 115px; }
+#EPL { left: 715px; top: 320px; }
+#EPR { left: 715px; top: 115px; }
+
+#EBV { left: 325px; top: 220px; }
+#EBH { left: 820px; top: 220px; }
+*/
+
+/* Motors */
+.m {
+	position: absolute;
+    height: 20px;
+    width: 20px;
+    -moz-border-radius:10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+	cursor: pointer;
+}
+
+.m-false {
+	background-color: #0000ff;
+	display: none;
+}
+.m-true {
+	background-color: #ffff00;
+}
+
+#M1 { left: 210px; top: 220px; }
+#M2 { left: 935px; top: 220px; }
+#M3 { left: 430px; top: 220px; }
+#M4 { left: 380px; top: 220px; }
+#M5 { left: 730px; top: 220px; }

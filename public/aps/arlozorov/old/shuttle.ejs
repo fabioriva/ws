@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include head %>
+		<link href="/aps/arlozorov/css/shuttle.css" rel="stylesheet" media="screen">
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include log %>
+		<!-- Base Pagesheet -->
+		<div class="container">
+			<div class="page-header">
+				<h3>Shuttle Overview <small>Arlozorov &middot; Tel Aviv &middot; Israel</small></h3>
+			</div>
+			
+			<div class="bs-callout bs-callout-info">
+				<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+				<h4>Shuttle sensor devices overview</h4>
+				<p>The sensor status is automatically updated. Hover on the sensor to get additional informations.</p>
+			</div>
+		
+			<!--
+			<img src="/aps/arlozorov/img/shuttle.jpg" class="img-responsive" alt="Shuttle">
+			-->
+			<div id="shuttle">
+				<!-- Shuttle sensors -->
+				<div class="sensor" id="EPZV" ng-class="sensorStatus(sh2_card[1].bytes[0].bits[2].status)" ng-show="sh_show">
+					<div class="popover-content hide" id="popover-EPZV">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>ERSCE</li>
+							<li><strong>Model :</strong><br>E100-00FI</li>
+							<li><strong>Type :</strong><br>Limitswitch</li>
+							<li><strong>Function :</strong><br>Vehicle in position (front detection)</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="EPZH" ng-class="sensorStatus(sh2_card[1].bytes[0].bits[3].status)" ng-show="sh_show">
+					<div class="popover-content hide" id="popover-EPZH">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>ERSCE</li>
+							<li><strong>Model :</strong><br>E100-00FI</li>
+							<li><strong>Type :</strong><br>Limitswitch</li>
+							<li><strong>Function :</strong><br>Vehicle in position (back detection</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="FTXV" ng-class="sensorStatus(sh2_card[1].bytes[0].bits[6].status)" ng-show="sh_show">
+					<div class="popover-content hide" id="popover-FTXV">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>CAME</li>
+							<li><strong>Model :</strong><br>001DOC-E</li>
+							<li><strong>Type :</strong><br>Photo sensor</li>
+							<li><strong>Function :</strong><br>Elevator interference (front side)</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="FTXH" ng-class="sensorStatus(sh2_card[1].bytes[0].bits[7].status)" ng-show="sh_show">
+					<div class="popover-content hide" id="popover-FTXH">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>CAME</li>
+							<li><strong>Model :</strong><br>001DOC-E</li>
+							<li><strong>Type :</strong><br>Photo sensor</li>
+							<li><strong>Function :</strong><br>Elevator interference (back side)</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="FEMV-E" ng-class="sensorStatus(sh2_card[1].bytes[0].bits[4].status)" ng-show="sh_show">
+					<div class="popover-content hide" id="popover-FEMV-E">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>CAME</li>
+							<li><strong>Model :</strong><br>001DOC-E</li>
+							<li><strong>Type :</strong><br>Photo sensor (sender)</li>
+							<li><strong>Function :</strong><br>Silomat on elevator (front side)</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="FEMV-R" ng-class="sensorStatus(sh2_card[1].bytes[0].bits[4].status)" ng-show="sh_show">
+					<div class="popover-content hide" id="popover-FEMV-R">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>CAME</li>
+							<li><strong>Model :</strong><br>001DOC-E</li>
+							<li><strong>Type :</strong><br>Photo sensor (receiver)</li>
+							<li><strong>Function :</strong><br>Silomat on elevator (front side)</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="FEMH-E"  ng-class="sensorStatus(sh2_card[1].bytes[0].bits[5].status)" ng-show="sh_show">
+					<div class="popover-content hide" id="popover-FEMH-E">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>CAME</li>
+							<li><strong>Model :</strong><br>001DOC-E</li>
+							<li><strong>Type :</strong><br>Photo sensor (sender)</li>
+							<li><strong>Function :</strong><br>Silomat on elevator (back side)</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="FEMH-R"  ng-class="sensorStatus(sh2_card[1].bytes[0].bits[5].status)" ng-show="sh_show">
+					<div class="popover-content hide" id="popover-FEMH-R">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>CAME</li>
+							<li><strong>Model :</strong><br>001DOC-E</li>
+							<li><strong>Type :</strong><br>Photo sensor (receiver)</li>
+							<li><strong>Function :</strong><br>Silomat on elevator (back side)</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="ECA" ng-class="sensorStatus(sh2_card[2].bytes[0].bits[1].status)" ng-show="sh_show">
+					<div class="popover-content hide" id="popover-ECA">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>ERSCE</li>
+							<li><strong>Model :</strong><br>E100-00FI</li>
+							<li><strong>Type :</strong><br>Limitswitch</li>
+							<li><strong>Function :</strong><br>Flap position up</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="ECB" ng-class="sensorStatus(sh2_card[2].bytes[0].bits[2].status)" ng-show="sh_show">
+					<div class="popover-content hide" id="popover-ECB">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>ERSCE</li>
+							<li><strong>Model :</strong><br>E100-00FI</li>
+							<li><strong>Type :</strong><br>Limitswitch</li>
+							<li><strong>Function :</strong><br>Flap position down)</li>
+						</ul>
+					</div>
+				</div>
+				<!-- Silomat sensors -->
+				<div class="sensor" id="MV" ng-class="sensorStatus(sh1_card[1].bytes[2].bits[0].status)" ng-show="silomat_show">
+					<div class="popover-content hide" id="popover-MV">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>PEPPER+FUCHS</li>
+							<li><strong>Model :</strong><br>NJ15+UI+W</li>
+							<li><strong>Type :</strong><br>Proximity sensor</li>
+							<li><strong>Function :</strong><br>Silomat front position</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="MH" ng-class="sensorStatus(sh1_card[1].bytes[2].bits[1].status)" ng-show="silomat_show">
+					<div class="popover-content hide" id="popover-MH">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>PEPPER+FUCHS</li>
+							<li><strong>Model :</strong><br>NJ15+UI+W</li>
+							<li><strong>Type :</strong><br>Proximity sensor</li>
+							<li><strong>Function :</strong><br>Silomat front position</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="ES" ng-class="sensorStatus(sh1_card[1].bytes[2].bits[2].status)" ng-show="silomat_show">
+					<div class="popover-content hide" id="popover-ES">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>STEUTE</li>
+							<li><strong>Model :</strong><br>E.41HL</li>
+							<li><strong>Type :</strong><br>Limitswitch</li>
+							<li><strong>Function :</strong><br>Silomat lower position</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="EH" ng-class="sensorStatus(sh1_card[1].bytes[2].bits[3].status)" ng-show="silomat_show">
+					<div class="popover-content hide" id="popover-EH">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>STEUTE</li>
+							<li><strong>Model :</strong><br>E.41HL</li>
+							<li><strong>Type :</strong><br>Limitswitch</li>
+							<li><strong>Function :</strong><br>Silomat higher position</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="EBV" ng-class="sensorStatus(sh1_card[1].bytes[2].bits[4].status)" ng-show="silomat_show">
+					<div class="popover-content hide" id="popover-EBV">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>STEUTE</li>
+							<li><strong>Model :</strong><br>E.41HL</li>
+							<li><strong>Type :</strong><br>Limitswitch</li>
+							<li><strong>Function :</strong><br>Silomat front centering device closed</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="EBH" ng-class="sensorStatus(sh1_card[1].bytes[2].bits[7].status)" ng-show="silomat_show">
+					<div class="popover-content hide" id="popover-EBH">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>STEUTE</li>
+							<li><strong>Model :</strong><br>E.41HL</li>
+							<li><strong>Type :</strong><br>Limitswitch</li>
+							<li><strong>Function :</strong><br>Silomat back centering device closed</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="EAL" ng-class="sensorStatus(sh1_card[1].bytes[2].bits[5].status)" ng-show="silomat_show">
+					<div class="popover-content hide" id="popover-EAR">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>PIZZATO</li>
+							<li><strong>Model :</strong><br>FR502</li>
+							<li><strong>Type :</strong><br>Limitswitch</li>
+							<li><strong>Function :</strong><br>Silomat front right centering device opened</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="EAR" ng-class="sensorStatus(sh1_card[1].bytes[2].bits[5].status)" ng-show="silomat_show">
+					<div class="popover-content hide" id="popover-EAL">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>PIZZATO</li>
+							<li><strong>Model :</strong><br>FR502</li>
+							<li><strong>Type :</strong><br>Limitswitch</li>
+							<li><strong>Function :</strong><br>Silomat front left centering device opened</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="EPL" ng-class="sensorStatus(sh1_card[1].bytes[2].bits[6].status)" ng-show="silomat_show">
+					<div class="popover-content hide" id="popover-EPL">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>PIZZATO</li>
+							<li><strong>Model :</strong><br>FR502</li>
+							<li><strong>Type :</strong><br>Limitswitch</li>
+							<li><strong>Function :</strong><br>Silomat back left centering device opened</li>
+						</ul>
+					</div>
+				</div>
+				<div class="sensor" id="EPR" ng-class="sensorStatus(sh1_card[1].bytes[2].bits[6].status)" ng-show="silomat_show">
+					<div class="popover-content hide" id="popover-EPR">
+						<ul class="list-unstyled">
+							<li><strong>Manufacturer :</strong><br>PIZZATO</li>
+							<li><strong>Model :</strong><br>FR502</li>
+							<li><strong>Type :</strong><br>Limitswitch</li>
+							<li><strong>Function :</strong><br>Silomat back right centering device opened</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+			<!-- Info -->
+		<div class="info-container">
+			<label class="checkbox-inline">
+				<input type="checkbox" ng-model="sh_show" /> Shuttle sensors
+			</label>
+			<label class="checkbox-inline">
+				<input type="checkbox" ng-model="silomat_show" /> Silomat sensors
+			</label>
+			<div class="pull-right">
+				<span ng-bind="shuttleStatus(sh1_card[4].bytes[0].bits[7].status)" ng-class="shuttleClass(sh1_card[4].bytes[0].bits[7].status)"></span>
+			</div>
+			<p>
+				<!--<h4 class="text-left">Shuttle travelling</h4>-->
+				<div class="panel panel-default">
+					<table class="table table-bordered table-condensed" >
+						<tr>
+							<td class="text-left col-1">Horizontal Encoder</td>
+							<td class="text-center col-2"><span class="glyphicon glyphicon-flash"></span></td>
+							<td class="text-center col-3"><strong class="text-primary" ng-bind="sh1.lasers[0].position"></strong> x 2mm</td>
+							<td class="text-center col-4"><strong class="text-primary" ng-bind="sh1.lasers[0].destination"></strong> x 2mm</td>
+						</tr>
+						<tr>
+							<td class="text-left col-1">Shuttle travelling motors</td>
+							<td class="text-center col-2" ng-bind-html="motorStatus(sh1.motors[0].status)" ng-class="motorStatusClass(sh1.motors[0].status)"></td>
+							<td class="text-center col-3"><strong class="text-primary" ng-bind="sh1.motors[0].speed"></strong> Hz</td>
+							<td class="text-center col-4"><strong class="text-primary" ng-bind="sh1.motors[0].current"></strong> A</td>
+						</tr>
+						<!--
+						<tr>
+							<td class="text-left col-1">Cable-reel drum motor</td>
+							<td class="text-center col-2" ng-bind-html="motorStatus(sh1.motors[1].status)" ng-class="motorStatusClass(sh1.motors[1].status)"></td>
+							<td class="text-center col-3"><strong class="text-primary" ng-bind="sh1.motors[1].speed"></strong> Hz</td>
+							<td class="text-center col-4"><strong class="text-primary" ng-bind="sh1.motors[1].current"></strong> A</td>
+						</tr>
+						-->
+					</table>
+				</div>
+				<!--<h4 class="text-left">Shuttle rotation</h4>-->
+				<div class="panel panel-default">
+					<table class="table table-bordered table-condensed" >
+							<td class="text-left col-1">Rotation Encoder</td>
+							<td class="text-center col-2"><span class="glyphicon glyphicon-minus"></span></td>
+							<td class="text-center col-3"><strong class="text-primary" ng-bind="sh1.lasers[1].position"></strong> x 2mm</td>
+							<td class="text-center col-4"><strong class="text-primary" ng-bind="sh1.lasers[1].destination"></strong> x 2mm</td>
+						</tr>
+						<tr>
+							<td class="text-left col-1">Shuttle rotation motor</td>
+							<td class="text-center col-2" ng-bind-html="motorStatus(sh1.motors[1].status)" ng-class="motorStatusClass(sh1.motors[0].status)"></td>
+							<td class="text-center col-3"><strong class="text-primary" ng-bind="sh1.motors[1].speed"></strong> Hz</td>
+							<td class="text-center col-4"><strong class="text-primary" ng-bind="sh1.motors[1].current"></strong> A</td>
+						</tr>
+						<tr>
+					</table>
+				</div>
+				<!--<h4 class="text-left">Silomat &reg; motors</h4>-->
+				<div class="panel panel-default">
+					<table class="table table-bordered table-condensed" >
+						
+						<tr>
+							<td class="text-left col-1">Silomat&reg; Encoder</td>
+							<td class="text-center col-2"><span class="glyphicon glyphicon-flash"></span></td>
+							<td class="text-center col-3"><strong class="text-primary" ng-bind="sh1.lasers[2].position"></strong> x 2mm</td>
+							<td class="text-center col-4"><strong class="text-primary" ng-bind="sh1.lasers[2].destination"></strong> x 2mm</td>
+						</tr>
+						<tr>
+							<td class="text-left col-1">Silomat&reg; travelling motors</td>
+							<td class="text-center col-2" ng-bind-html="motorStatus(sh1.motors[2].status)" ng-class="motorStatusClass(sh1.motors[2].status)"></td>
+							<td class="text-center col-3"><strong class="text-primary" ng-bind="sh1.motors[2].speed"></strong> Hz</td>
+							<td class="text-center col-4"><strong class="text-primary" ng-bind="sh1.motors[2].current"></strong> A</td>
+						</tr>
+						<tr>
+							<td class="text-left col-1">Silomat&reg; hoisting motor</td>
+							<td class="text-center col-2" ng-bind-html="motorStatus(sh1.motors[3].status)" ng-class="motorStatusClass(sh1.motors[3].status)"></td>
+							<td class="text-center col-3"><strong class="text-primary" ng-bind="sh1.motors[3].speed"></strong> Hz</td>
+							<td class="text-center col-4"><strong class="text-primary" ng-bind="sh1.motors[3].current"></strong> A</td>
+						</tr>
+						<tr>
+							<td class="text-left col-1">Silomat&reg; front centering motor</td>
+							<td class="text-center col-2" ng-bind-html="motorStatus(sh1.motors[4].status)" ng-class="motorStatusClass(sh1.motors[4].status)"></td>
+							<td class="text-center col-3"><strong class="text-primary" ng-bind="sh1.motors[4].speed"></strong> Hz</td>
+							<td class="text-center col-4"><strong class="text-primary" ng-bind="sh1.motors[4].current"></strong> A</td>
+						</tr>
+						<tr>
+							<td class="text-left col-1">Silomat&reg; back centering motor</td>
+							<td class="text-center col-2" ng-bind-html="motorStatus(sh1.motors[5].status)" ng-class="motorStatusClass(sh1.motors[5].status)"></td>
+							<td class="text-center col-3"><strong class="text-primary" ng-bind="sh1.motors[5].speed"></strong> Hz</td>
+							<td class="text-center col-4"><strong class="text-primary" ng-bind="sh1.motors[5].current"></strong> A</td>
+						</tr>
+					</table>
+				</div>
+			</p>
+		</div>
+		
+		</div> <!-- /container -->
+		<% include footer %>
+		<% include scripts %>
+		<script type="text/javascript" src="/js/main.js"></script>
+		<script type="text/javascript" src="/aps/arlozorov/js/shuttle.js"></script>
+	</body>
+</html>

@@ -1,0 +1,80 @@
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+.l {
+  position: absolute;
+  height: 20px;
+  width: 20px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  border-radius: 13px;
+  cursor: pointer;
+}
+.l-false {
+  background-color: #e3f6ce;
+}
+.l-true {
+  background-color: #00ff00;
+}
+#elevator {
+  position: relative;
+  margin: 50px auto;
+  /* center div */
+  background-repeat: no-repeat;
+  background-image: url("/aps/arlozorov/img/elevator-xs.jpg");
+  height: 362px;
+  width: 480px;
+}
+#EXPV {
+  left: 15px;
+  top: 150px;
+  background-color: #00ffff;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  #elevator {
+    background-image: url("/aps/arlozorov/img/elevator-sm.jpg");
+    height: 482px;
+    width: 640px;
+  }
+  #EXPV {
+    left: 20px;
+    top: 200px;
+    background-color: #ffff00;
+  }
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  #elevator {
+    background-image: url("/aps/arlozorov/img/elevator-md.jpg");
+    height: 602px;
+    width: 800px;
+  }
+  #EXPV {
+    left: 25px;
+    top: 250px;
+    background-color: #ff00ff;
+  }
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /*#elevator {
+		background-image: url("/aps/arlozorov/img/elevator-lg.jpg");
+		height: 723px;
+		width: 960px;
+	}
+	#EXPV {
+		left: 30px;
+		top: 300px;
+		background-color: #a0ff0d;
+	}*/
+  #elevator {
+    background-image: url("/aps/arlozorov/img/elevator-md.jpg");
+    height: 602px;
+    width: 800px;
+  }
+  #EXPV {
+    left: 25px;
+    top: 250px;
+    background-color: #a0ff0d;
+  }
+}

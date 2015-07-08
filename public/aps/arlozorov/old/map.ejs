@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include head %>
+		<link href="/aps/arlozorov/css/map.css" rel="stylesheet" media="screen">
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include log %>
+		<!-- Base Pagesheet -->
+		<div class="container">
+		<div class="page-header">
+			<h3>Map Overview <small>Arlozorov &middot; Tel Aviv &middot; Israel</small></h3>
+		</div>	
+
+		<div class="row">
+			<div class="col-md-8">
+		
+				<div class="map">
+					<p class="text-left"><strong>Total parking spaces</strong></p>
+					<p><span class="label label-info">{{map.spaces}}</span> spaces</p>
+					<div ng-repeat="level in map.levels">
+						<div class="row">
+							<div class="col-md-2">
+								<p class="text-left"><strong>{{level.label}}</strong></p>
+								<p><span class="label label-info">{{level.stalls.length}}</span> spaces</p>
+							</div>
+							<div class="col-md-2">
+								<div class="l" id="l-{{level.nr}}">
+								<span ng-repeat="stall in level.stalls">
+									<div ng-class="stallClass(stall.status)" id="s-{{stall.nr}}" title="{{stallTitle(stall.nr, stall.status, stall.date, stall.time)}}">
+										<span class="st" ng-bind="stallHtml(stall.nr, stall.status, 0)" ng-click="stallEdit(stall.nr)"></span>
+									</div>
+								</span>
+								<div class="el" id="el-1">LIFT</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<p>
+					<label class="checkbox-inline"><input type="checkbox" id="view1" ng-model="view1" ng-change="changeView(1)" ng-checked="view1" /> Show numbers</label>
+					<label class="checkbox-inline"><input type="checkbox" id="view2" ng-model="view2" ng-change="changeView(2)" ng-checked="view2" /> Show cards</label>
+					</p>
+				</div>	
+		
+			</div>
+			<div class="col-md-4">
+			
+				<div>
+					<chart></chart>
+					<div class="panel panel-info" id="info">
+						<div class="panel-heading text-center"><strong>Summary</strong></div>
+						<table class="table" >
+							<tr><td>Total parking spaces</td><td class="text-center"><strong class="text-info" ng-bind="data[0]"></strong></td></tr>
+							<tr><td>Available spaces</td><td class="text-center"><strong class="text-success" ng-bind="data[1]"></strong></td></tr>
+							<tr><td>Occupied spaces</td><td class="text-center"><strong class="text-danger" ng-bind="data[2]"></strong></td></tr>
+							<tr><td>Locked spaces</td><td class="text-center"><strong class="text-muted" ng-bind="data[3]"></strong></td></tr>
+						</table>
+					</div>
+				</div>
+				
+			</div>
+		</div>
+
+		
+		<div class="modal fade" id="edit-map-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+						<h4 class="modal-title">Edit stall</h4>
+					</div>
+					<div class="modal-body">
+						<form class="form" role="form">
+							<div class="form-group">
+								<label for="map-edit-stall">Stall number :</label>
+								<input type="number" name="stall-nr" min="1" max="42" class="form-control" id="map-edit-stall" disabled>
+							</div>
+							<div class="form-group">
+								<label for="map-edit-card">Card number :</label>
+								<input type="number" name="card-nr" min="1" max="42" class="form-control" id="map-edit-card" placeholder="Enter card number ( 1 - 9999 )">
+							</div>
+						</form>
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary" disabled="disabled" id="map-edit-btn" ng-click="stallCard()">Card</button>
+						<button type="button" class="btn btn-primary" disabled="disabled" id="map-edit-clr" ng-click="stallClear()">Clear</button>
+						<button type="button" class="btn btn-primary" disabled="disabled" id="map-edit-lck" ng-click="stallLock()">Lock</button>
+						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div><!-- /.modal -->
+
+		</div> <!-- /container -->
+		<% include footer %>
+		<% include scripts %>
+		<!-- Google jsapi -->
+		<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+		<script type="text/javascript" src="/aps/arlozorov/js/map.js"></script>
+	</body>
+</html>

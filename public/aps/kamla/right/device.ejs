@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include ../head %>
+		<link href="/aps/kamla/css/device.css" rel="stylesheet" media="screen">
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include ../log %>
+		<!-- Base Pagesheet -->
+		<div class="container">
+
+		<div class="page-header">
+			<h3>System Devices <small>Right Side &middot; Kamla Nagar &middot; New Delhi</small></h3>
+		</div>
+		
+		<div class="row">
+			<!-- Elevators -->
+			<div class="col-md-10">
+				<div class="row">		
+					<!-- Elevator 1 -->
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="panel-heading text-center text-primary device-heading" ng-bind="system.devices[0].name"></div>	
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Operating Mode</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[0].mode"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Card Reference</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[0].card"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Destination</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[0].stall"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Vehicle Size</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[0].size"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-warning device-body-left">Value / Final</div>
+									<!--<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[0].position"></div>-->
+									<div class="col-md-6 text-center text-primary device-body-right">
+										<span ng-bind="system.devices[0].position"></span>/<span ng-bind="system.devices[0].destination"></span>
+									</div>
+								</div>
+							</div>
+							<div class="panel-footer device-footer">
+								<!--
+								<span ng-repeat="lamp in system.devices[0].lamps">
+									<div class="l" id="l-{{lamp.id}}" title="{{lamp.label}}" ng-class="'l-{{lamp.id}}-{{lamp.status}}'"></div>
+								</span>
+								-->
+								<div id="l-1" title="{{system.devices[0].lamps[0].label}}" ng-class="lampStatus(system.devices[0].lamps[0].id, system.devices[0].lamps[0].status)"></div>
+								<div id="l-2" title="{{system.devices[0].lamps[1].label}}" ng-class="lampStatus(system.devices[0].lamps[1].id, system.devices[0].lamps[1].status)"></div>
+								<a href="/kamla/right/alarm/1">
+									<div id="l-3" title="{{system.devices[0].lamps[2].label}}" ng-class="lampStatus(system.devices[0].lamps[2].id, system.devices[0].lamps[2].status)"></div>
+								</a>
+								<a href="/kamla/right/elevator/1"><span class="glyphicon glyphicon-wrench"></span></a>
+								<a ng-show="infoStatus(system.devices[0].infos[0].status)"><span class="glyphicon glyphicon-arrow-right" title="{{system.devices[0].infos[0].label}}"></span></a>
+								<a ng-show="infoStatus(system.devices[0].infos[1].status)"><span class="glyphicon glyphicon-arrow-left" title="{{system.devices[0].infos[1].label}}"></span></a>
+							</div>
+						</div>
+					</div>
+					<!-- Elevator 2 -->
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="panel-heading text-center text-primary device-heading" ng-bind="system.devices[1].name"></div>	
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Operating Mode</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[1].mode"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Card Reference</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[1].card"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Destination</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[1].stall"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Vehicle Size</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[1].size"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-warning device-body-left">Value / Final</div>
+									<!--<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[1].position"></div>-->
+									<div class="col-md-6 text-center text-primary device-body-right">
+										<span ng-bind="system.devices[1].position"></span>/<span ng-bind="system.devices[1].destination"></span>
+									</div>
+								</div>
+							</div>
+							<div class="panel-footer device-footer">
+								<div id="l-1" title="{{system.devices[1].lamps[0].label}}" ng-class="lampStatus(system.devices[1].lamps[0].id, system.devices[1].lamps[0].status)"></div>
+								<div id="l-2" title="{{system.devices[1].lamps[1].label}}" ng-class="lampStatus(system.devices[1].lamps[1].id, system.devices[1].lamps[1].status)"></div>
+								<a href="/kamla/right/alarm/2">
+									<div id="l-3" title="{{system.devices[1].lamps[2].label}}" ng-class="lampStatus(system.devices[1].lamps[2].id, system.devices[1].lamps[2].status)"></div>
+								</a>
+								<a href="/kamla/right/elevator/2"><span class="glyphicon glyphicon-wrench"></span></a>
+								<a ng-show="infoStatus(system.devices[1].infos[0].status)"><span class="glyphicon glyphicon-arrow-right" title="{{system.devices[1].infos[0].label}}"></span></a>
+								<a ng-show="infoStatus(system.devices[1].infos[1].status)"><span class="glyphicon glyphicon-arrow-left" title="{{system.devices[1].infos[1].label}}"></span></a>
+							</div>
+						</div>
+					</div>
+					<!-- Elevator 3 -->
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="panel-heading text-center text-primary device-heading" ng-bind="system.devices[2].name"></div>	
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Operating Mode</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[2].mode"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Card Reference</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[2].card"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Destination</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[2].stall"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Vehicle Size</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[2].size"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-warning device-body-left">Value / Final</div>
+									<!--<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[2].position"></div>-->
+									<div class="col-md-6 text-center text-primary device-body-right">
+										<span ng-bind="system.devices[2].position"></span>/<span ng-bind="system.devices[2].destination"></span>
+									</div>
+								</div>
+							</div>
+							<div class="panel-footer device-footer">
+								<div id="l-1" title="{{system.devices[2].lamps[0].label}}" ng-class="lampStatus(system.devices[2].lamps[0].id, system.devices[2].lamps[0].status)"></div>
+								<div id="l-2" title="{{system.devices[2].lamps[1].label}}" ng-class="lampStatus(system.devices[2].lamps[1].id, system.devices[2].lamps[1].status)"></div>
+								<a href="/kamla/right/alarm/3">
+									<div id="l-3" title="{{system.devices[2].lamps[2].label}}" ng-class="lampStatus(system.devices[2].lamps[2].id, system.devices[2].lamps[2].status)"></div>
+								</a>
+								<a href="/kamla/right/elevator/3"><span class="glyphicon glyphicon-wrench"></span></a>
+								<a ng-show="infoStatus(system.devices[2].infos[0].status)"><span class="glyphicon glyphicon-arrow-right" title="{{system.devices[2].infos[0].label}}"></span></a>
+								<a ng-show="infoStatus(system.devices[2].infos[1].status)"><span class="glyphicon glyphicon-arrow-left" title="{{system.devices[2].infos[1].label}}"></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Basement B2 -->
+				<div class="row">					
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="panel-heading text-center text-primary device-heading" ng-bind="system.devices[3].name"></div>	
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Operating Mode</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[3].mode"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Card Reference</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[3].card"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Destination</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[3].stall"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Vehicle Size</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[3].size"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-warning device-body-left">Position ( Laser )</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[3].position"></div>
+								</div>
+							</div>
+							<div class="panel-footer device-footer">
+								<div id="l-1" title="{{system.devices[3].lamps[0].label}}" ng-class="lampStatus(system.devices[3].lamps[0].id, system.devices[3].lamps[0].status)"></div>
+								<div id="l-2" title="{{system.devices[3].lamps[1].label}}" ng-class="lampStatus(system.devices[3].lamps[1].id, system.devices[3].lamps[1].status)"></div>
+								<a href="/kamla/right/alarm/11">
+									<div id="l-3" title="{{system.devices[3].lamps[2].label}}" ng-class="lampStatus(system.devices[3].lamps[2].id, system.devices[3].lamps[2].status)"></div>
+								</a>
+								<a href="/kamla/right/shuttle/1"><span class="glyphicon glyphicon-wrench"></span></a>
+								<a ng-show="infoStatus(system.devices[3].infos[0].status)"><span class="glyphicon glyphicon-arrow-right" title="{{system.devices[3].infos[0].label}}"></span></a>
+								<a ng-show="infoStatus(system.devices[3].infos[1].status)"><span class="glyphicon glyphicon-arrow-left" title="{{system.devices[3].infos[1].label}}"></span></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2 class="text-center text-muted level-title">Basement B2</h2>
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="panel-heading text-center text-primary device-heading" ng-bind="system.devices[4].name"></div>	
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Operating Mode</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[4].mode"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Card Reference</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[4].card"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Destination</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[4].stall"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Vehicle Size</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[4].size"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-warning device-body-left">Position ( Laser )</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[4].position"></div>
+								</div>
+							</div>
+							<div class="panel-footer device-footer">
+								<div id="l-1" title="{{system.devices[4].lamps[0].label}}" ng-class="lampStatus(system.devices[4].lamps[0].id, system.devices[4].lamps[0].status)"></div>
+								<div id="l-2" title="{{system.devices[4].lamps[1].label}}" ng-class="lampStatus(system.devices[4].lamps[1].id, system.devices[4].lamps[1].status)"></div>
+								<a href="/kamla/right/alarm/12">
+									<div id="l-3" title="{{system.devices[4].lamps[2].label}}" ng-class="lampStatus(system.devices[4].lamps[2].id, system.devices[4].lamps[2].status)"></div>
+								</a>
+								<a href="/kamla/right/shuttle/2"><span class="glyphicon glyphicon-wrench"></span></a>
+								<a ng-show="infoStatus(system.devices[4].infos[0].status)"><span class="glyphicon glyphicon-arrow-right" title="{{system.devices[4].infos[0].label}}"></span></a>
+								<a ng-show="infoStatus(system.devices[4].infos[1].status)"><span class="glyphicon glyphicon-arrow-left" title="{{system.devices[4].infos[1].label}}"></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Basement B3 -->
+				<div class="row">					
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="panel-heading text-center text-primary device-heading" ng-bind="system.devices[5].name"></div>	
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Operating Mode</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[5].mode"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Card Reference</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[5].card"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Destination</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[5].stall"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Vehicle Size</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[5].size"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-warning device-body-left">Position ( Laser )</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[5].position"></div>
+								</div>
+							</div>
+							<div class="panel-footer device-footer">
+								<div id="l-1" title="{{system.devices[5].lamps[0].label}}" ng-class="lampStatus(system.devices[5].lamps[0].id, system.devices[5].lamps[0].status)"></div>
+								<div id="l-2" title="{{system.devices[5].lamps[1].label}}" ng-class="lampStatus(system.devices[5].lamps[1].id, system.devices[5].lamps[1].status)"></div>
+								<a href="/kamla/right/alarm/13">
+									<div id="l-3" title="{{system.devices[5].lamps[2].label}}" ng-class="lampStatus(system.devices[5].lamps[2].id, system.devices[5].lamps[2].status)"></div>
+								</a>
+								<a href="/kamla/right/shuttle/3"><span class="glyphicon glyphicon-wrench"></span></a>
+								<a ng-show="infoStatus(system.devices[5].infos[0].status)"><span class="glyphicon glyphicon-arrow-right" title="{{system.devices[5].infos[0].label}}"></span></a>
+								<a ng-show="infoStatus(system.devices[5].infos[1].status)"><span class="glyphicon glyphicon-arrow-left" title="{{system.devices[5].infos[1].label}}"></span></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2 class="text-center text-muted level-title">Basement B3</h2>
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="panel-heading text-center text-primary device-heading" ng-bind="system.devices[6].name"></div>	
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Operating Mode</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[6].mode"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Card Reference</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[6].card"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Destination</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[6].stall"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Vehicle Size</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[6].size"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-warning device-body-left">Position ( Laser )</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[6].position"></div>
+								</div>
+							</div>
+							<div class="panel-footer device-footer">
+								<div id="l-1" title="{{system.devices[6].lamps[0].label}}" ng-class="lampStatus(system.devices[6].lamps[0].id, system.devices[6].lamps[0].status)"></div>
+								<div id="l-2" title="{{system.devices[6].lamps[1].label}}" ng-class="lampStatus(system.devices[6].lamps[1].id, system.devices[6].lamps[1].status)"></div>
+								<a href="/kamla/right/alarm/14">
+									<div id="l-3" title="{{system.devices[6].lamps[2].label}}" ng-class="lampStatus(system.devices[6].lamps[2].id, system.devices[6].lamps[2].status)"></div>
+								</a>
+								<a href="/kamla/right/shuttle/4"><span class="glyphicon glyphicon-wrench"></span></a>
+								<a ng-show="infoStatus(system.devices[6].infos[0].status)"><span class="glyphicon glyphicon-arrow-right" title="{{system.devices[6].infos[0].label}}"></span></a>
+								<a ng-show="infoStatus(system.devices[6].infos[1].status)"><span class="glyphicon glyphicon-arrow-left" title="{{system.devices[6].infos[1].label}}"></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Basement B4 -->
+				<div class="row">					
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="panel-heading text-center text-primary device-heading" ng-bind="system.devices[7].name"></div>	
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Operating Mode</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[7].mode"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Card Reference</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[7].card"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Destination</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[7].stall"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Vehicle Size</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[7].size"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-warning device-body-left">Position ( Laser )</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[7].position"></div>
+								</div>
+							</div>
+							<div class="panel-footer device-footer">
+								<div id="l-1" title="{{system.devices[7].lamps[0].label}}" ng-class="lampStatus(system.devices[7].lamps[0].id, system.devices[7].lamps[0].status)"></div>
+								<div id="l-2" title="{{system.devices[7].lamps[1].label}}" ng-class="lampStatus(system.devices[7].lamps[1].id, system.devices[7].lamps[1].status)"></div>
+								<a href="/kamla/right/alarm/15">
+									<div id="l-3" title="{{system.devices[7].lamps[2].label}}" ng-class="lampStatus(system.devices[7].lamps[2].id, system.devices[7].lamps[2].status)"></div>
+								</a>
+								<a href="/kamla/right/shuttle/5"><span class="glyphicon glyphicon-wrench"></span></a>
+								<a ng-show="infoStatus(system.devices[7].infos[0].status)"><span class="glyphicon glyphicon-arrow-right" title="{{system.devices[7].infos[0].label}}"></span></a>
+								<a ng-show="infoStatus(system.devices[7].infos[1].status)"><span class="glyphicon glyphicon-arrow-left" title="{{system.devices[7].infos[1].label}}"></span></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2 class="text-center text-muted level-title">Basement B4</h2>
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="panel-heading text-center text-primary device-heading" ng-bind="system.devices[8].name"></div>	
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Operating Mode</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[8].mode"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Card Reference</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[8].card"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Destination</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[8].stall"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Vehicle Size</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[8].size"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-warning device-body-left">Position ( Laser )</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[8].position"></div>
+								</div>
+							</div>
+							<div class="panel-footer device-footer">
+								<div id="l-1" title="{{system.devices[8].lamps[0].label}}" ng-class="lampStatus(system.devices[8].lamps[0].id, system.devices[8].lamps[0].status)"></div>
+								<div id="l-2" title="{{system.devices[8].lamps[1].label}}" ng-class="lampStatus(system.devices[8].lamps[1].id, system.devices[8].lamps[1].status)"></div>
+								<a href="/kamla/right/alarm/16">
+									<div id="l-3" title="{{system.devices[8].lamps[2].label}}" ng-class="lampStatus(system.devices[8].lamps[2].id, system.devices[8].lamps[2].status)"></div>
+								</a>
+								<a href="/kamla/right/shuttle/6"><span class="glyphicon glyphicon-wrench"></span></a>
+								<a ng-show="infoStatus(system.devices[8].infos[0].status)"><span class="glyphicon glyphicon-arrow-right" title="{{system.devices[8].infos[0].label}}"></span></a>
+								<a ng-show="infoStatus(system.devices[8].infos[1].status)"><span class="glyphicon glyphicon-arrow-left" title="{{system.devices[8].infos[1].label}}"></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Basement B5 -->
+				<div class="row">					
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="panel-heading text-center text-primary device-heading" ng-bind="system.devices[9].name"></div>	
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Operating Mode</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[9].mode"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Card Reference</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[9].card"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Destination</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[9].stall"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Vehicle Size</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[9].size"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-warning device-body-left">Position ( Laser )</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[9].position"></div>
+								</div>
+							</div>
+							<div class="panel-footer device-footer">
+								<div id="l-1" title="{{system.devices[9].lamps[0].label}}" ng-class="lampStatus(system.devices[9].lamps[0].id, system.devices[9].lamps[0].status)"></div>
+								<div id="l-2" title="{{system.devices[9].lamps[1].label}}" ng-class="lampStatus(system.devices[9].lamps[1].id, system.devices[9].lamps[1].status)"></div>
+								<a href="/kamla/right/alarm/17">
+									<div id="l-3" title="{{system.devices[9].lamps[2].label}}" ng-class="lampStatus(system.devices[9].lamps[2].id, system.devices[9].lamps[2].status)"></div>
+								</a>
+								<a href="/kamla/right/shuttle/7"><span class="glyphicon glyphicon-wrench"></span></a>
+								<a ng-show="infoStatus(system.devices[9].infos[0].status)"><span class="glyphicon glyphicon-arrow-right" title="{{system.devices[9].infos[0].label}}"></span></a>
+								<a ng-show="infoStatus(system.devices[9].infos[1].status)"><span class="glyphicon glyphicon-arrow-left" title="{{system.devices[9].infos[1].label}}"></span></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2 class="text-center text-muted level-title">Basement B5</h2>
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="panel-heading text-center text-primary device-heading" ng-bind="system.devices[10].name"></div>	
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Operating Mode</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[10].mode"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Card Reference</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[10].card"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Destination</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[10].stall"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Vehicle Size</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[10].size"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-warning device-body-left">Position ( Laser )</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[10].position"></div>
+								</div>
+							</div>
+							<div class="panel-footer device-footer">
+								<div id="l-1" title="{{system.devices[10].lamps[0].label}}" ng-class="lampStatus(system.devices[10].lamps[0].id, system.devices[10].lamps[0].status)"></div>
+								<div id="l-2" title="{{system.devices[10].lamps[1].label}}" ng-class="lampStatus(system.devices[10].lamps[1].id, system.devices[10].lamps[1].status)"></div>
+								<a href="/kamla/right/alarm/18">
+									<div id="l-3" title="{{system.devices[10].lamps[2].label}}" ng-class="lampStatus(system.devices[10].lamps[2].id, system.devices[10].lamps[2].status)"></div>
+								</a>
+								<a href="/kamla/right/shuttle/8"><span class="glyphicon glyphicon-wrench"></span></a>
+								<a ng-show="infoStatus(system.devices[10].infos[0].status)"><span class="glyphicon glyphicon-arrow-right" title="{{system.devices[10].infos[0].label}}"></span></a>
+								<a ng-show="infoStatus(system.devices[10].infos[1].status)"><span class="glyphicon glyphicon-arrow-left" title="{{system.devices[10].infos[1].label}}"></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Basement B6 -->
+				<div class="row">					
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="panel-heading text-center text-primary device-heading" ng-bind="system.devices[11].name"></div>	
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Operating Mode</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[11].mode"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Card Reference</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[11].card"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Destination</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[11].stall"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Vehicle Size</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[11].size"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-warning device-body-left">Position ( Laser )</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[11].position"></div>
+								</div>
+							</div>
+							<div class="panel-footer device-footer">
+								<div id="l-1" title="{{system.devices[11].lamps[0].label}}" ng-class="lampStatus(system.devices[11].lamps[0].id, system.devices[11].lamps[0].status)"></div>
+								<div id="l-2" title="{{system.devices[11].lamps[1].label}}" ng-class="lampStatus(system.devices[11].lamps[1].id, system.devices[11].lamps[1].status)"></div>
+								<a href="/kamla/right/alarm/19">
+									<div id="l-3" title="{{system.devices[11].lamps[2].label}}" ng-class="lampStatus(system.devices[11].lamps[2].id, system.devices[11].lamps[2].status)"></div>
+								</a>
+								<a href="/kamla/right/shuttle/9"><span class="glyphicon glyphicon-wrench"></span></a>
+								<a ng-show="infoStatus(system.devices[11].infos[0].status)"><span class="glyphicon glyphicon-arrow-right" title="{{system.devices[11].infos[0].label}}"></span></a>
+								<a ng-show="infoStatus(system.devices[11].infos[1].status)"><span class="glyphicon glyphicon-arrow-left" title="{{system.devices[11].infos[1].label}}"></span></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2 class="text-center text-muted level-title">Basement B6</h2>
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="panel-heading text-center text-primary device-heading" ng-bind="system.devices[12].name"></div>	
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Operating Mode</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[12].mode"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Card Reference</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[12].card"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Destination</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[12].stall"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Vehicle Size</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[12].size"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-warning device-body-left">Position ( Laser )</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[12].position"></div>
+								</div>
+							</div>
+							<div class="panel-footer device-footer">
+								<div id="l-1" title="{{system.devices[12].lamps[0].label}}" ng-class="lampStatus(system.devices[12].lamps[0].id, system.devices[12].lamps[0].status)"></div>
+								<div id="l-2" title="{{system.devices[12].lamps[1].label}}" ng-class="lampStatus(system.devices[12].lamps[1].id, system.devices[12].lamps[1].status)"></div>
+								<a href="/kamla/right/alarm/20">
+									<div id="l-3" title="{{system.devices[12].lamps[2].label}}" ng-class="lampStatus(system.devices[12].lamps[2].id, system.devices[12].lamps[2].status)"></div>
+								</a>
+								<a href="/kamla/right/shuttle/10"><span class="glyphicon glyphicon-wrench"></span></a>
+								<a ng-show="infoStatus(system.devices[12].infos[0].status)"><span class="glyphicon glyphicon-arrow-right" title="{{system.devices[12].infos[0].label}}"></span></a>
+								<a ng-show="infoStatus(system.devices[12].infos[1].status)"><span class="glyphicon glyphicon-arrow-left" title="{{system.devices[12].infos[1].label}}"></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+				<!-- Basement B7 -->
+				<div class="row">					
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="panel-heading text-center text-primary device-heading" ng-bind="system.devices[13].name"></div>	
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Operating Mode</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[13].mode"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Card Reference</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[13].card"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Destination</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[13].stall"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Vehicle Size</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[13].size"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-warning device-body-left">Position ( Laser )</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[13].position"></div>
+								</div>
+							</div>
+							<div class="panel-footer device-footer">
+								<div id="l-1" title="{{system.devices[13].lamps[0].label}}" ng-class="lampStatus(system.devices[13].lamps[0].id, system.devices[13].lamps[0].status)"></div>
+								<div id="l-2" title="{{system.devices[13].lamps[1].label}}" ng-class="lampStatus(system.devices[13].lamps[1].id, system.devices[13].lamps[1].status)"></div>
+								<a href="/kamla/right/alarm/21">
+									<div id="l-3" title="{{system.devices[13].lamps[2].label}}" ng-class="lampStatus(system.devices[13].lamps[2].id, system.devices[13].lamps[2].status)"></div>
+								</a>
+								<a href="/kamla/right/shuttle/11"><span class="glyphicon glyphicon-wrench"></span></a>
+								<a ng-show="infoStatus(system.devices[13].infos[0].status)"><span class="glyphicon glyphicon-arrow-right" title="{{system.devices[13].infos[0].label}}"></span></a>
+								<a ng-show="infoStatus(system.devices[13].infos[1].status)"><span class="glyphicon glyphicon-arrow-left" title="{{system.devices[13].infos[1].label}}"></span></a>
+							</div>
+						</div>
+					</div>
+					<div class="col-md-4">
+						<h2 class="text-center text-muted level-title">Basement B7</h2>
+					</div>
+					<div class="col-md-4">
+						<div class="panel panel-info">
+							<div class="panel-heading text-center text-primary device-heading" ng-bind="system.devices[14].name"></div>	
+							<div class="panel-body">
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Operating Mode</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[14].mode"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Card Reference</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[14].card"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Destination</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[14].stall"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-muted device-body-left">Vehicle Size</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[14].size"></div>
+								</div>
+								<div class="row">
+									<div class="col-md-6 text-center text-warning device-body-left">Position ( Laser )</div>
+									<div class="col-md-6 text-center text-primary device-body-right" ng-bind="system.devices[14].position"></div>
+								</div>
+							</div>
+							<div class="panel-footer device-footer">
+								<div id="l-1" title="{{system.devices[14].lamps[0].label}}" ng-class="lampStatus(system.devices[14].lamps[0].id, system.devices[14].lamps[0].status)"></div>
+								<div id="l-2" title="{{system.devices[14].lamps[1].label}}" ng-class="lampStatus(system.devices[14].lamps[1].id, system.devices[14].lamps[1].status)"></div>
+								<a href="/kamla/right/alarm/22">
+									<div id="l-3" title="{{system.devices[14].lamps[2].label}}" ng-class="lampStatus(system.devices[14].lamps[2].id, system.devices[14].lamps[2].status)"></div>
+								</a>
+								<a href="/kamla/right/shuttle/12"><span class="glyphicon glyphicon-wrench"></span></a>
+								<a ng-show="infoStatus(system.devices[14].infos[0].status)"><span class="glyphicon glyphicon-arrow-right" title="{{system.devices[14].infos[0].label}}"></span></a>
+								<a ng-show="infoStatus(system.devices[14].infos[1].status)"><span class="glyphicon glyphicon-arrow-left" title="{{system.devices[14].infos[1].label}}"></span></a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Exit Queue -->
+			<div class="col-md-2">
+				<div class="panel panel-info">
+					<div class="panel-heading text-center text-primary device-heading">Exit Queue</div>
+					<table class="table table-condensed">
+						<!-- <tr>
+							<th class="text-center">Reference</th>
+							<th class="text-center">Stall</th>
+						</tr> -->
+						<tr><td class="text-center">01 <i class="glyphicon glyphicon-hand-up"></i> <strong class="text-primary" ng-bind="system.exit_queue[0].card"></strong></td></tr>
+						<tr><td class="text-center">02 <i class="glyphicon glyphicon-arrow-up"></i> <strong class="text-primary" ng-bind="system.exit_queue[1].card"></strong></td></tr>
+						<tr><td class="text-center">03 <i class="glyphicon glyphicon-arrow-up"></i> <strong class="text-primary" ng-bind="system.exit_queue[2].card"></strong></td></tr>
+						<tr><td class="text-center">04 <i class="glyphicon glyphicon-arrow-up"></i> <strong class="text-primary" ng-bind="system.exit_queue[3].card"></strong></td></tr>
+						<tr><td class="text-center">05 <i class="glyphicon glyphicon-arrow-up"></i> <strong class="text-primary" ng-bind="system.exit_queue[4].card"></strong></td></tr>
+						<tr><td class="text-center">06 <i class="glyphicon glyphicon-arrow-up"></i> <strong class="text-primary" ng-bind="system.exit_queue[5].card"></strong></td></tr>
+						<tr><td class="text-center">07 <i class="glyphicon glyphicon-arrow-up"></i> <strong class="text-primary" ng-bind="system.exit_queue[6].card"></strong></td></tr>
+						<tr><td class="text-center">08 <i class="glyphicon glyphicon-arrow-up"></i> <strong class="text-primary" ng-bind="system.exit_queue[7].card"></strong></td></tr>
+						<tr><td class="text-center">09 <i class="glyphicon glyphicon-arrow-up"></i> <strong class="text-primary" ng-bind="system.exit_queue[8].card"></strong></td></tr>
+						<tr><td class="text-center">10 <i class="glyphicon glyphicon-arrow-up"></i> <strong class="text-primary" ng-bind="system.exit_queue[9].card"></strong></td></tr>
+					</table>
+					<div class="panel-footer text-center device-footer"></div>
+				</div>
+				<a href="#" role="button" class="btn btn-info btn-lg btn-block disabled">Exit</a>
+			</div>
+		</div>
+
+		</div> <!-- /container -->
+		<% include ../footer %>
+		<% include ../scripts %>
+		<script type="text/javascript" src="/aps/kamla/right/js/comm.js"></script>
+		<script type="text/javascript" src="/aps/kamla/right/js/log.js"></script>
+		<script type="text/javascript" src="/aps/kamla/right/js/device.js"></script>
+	</body>
+</html>

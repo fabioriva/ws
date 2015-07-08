@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include ../head %>
+		<link href="/css/aps/arlozorov/index.css" rel="stylesheet" media="screen">
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include ../log %>
+		<!-- Base Pagesheet -->
+		<div class="container">
+			<div class="page-header">
+				<h3>System Statistics <small>Arlozorov &middot; Tel Aviv &middot; Israel</small></h3>
+			</div>
+
+			<p>Following some charts about the recent system activity.</p>
+			
+			<div class="page-header">
+				<h4>System Operations</h4>
+			</div>
+			
+			<ul class="nav nav-tabs" id="tab-chart">
+				<li><a href="#tab-chart1" data-toggle="tab"><span class="fa fa-bar-chart"></span> Daily operations</a></li>
+				<li><a href="#tab-chart2" data-toggle="tab"><span class="fa fa-bar-chart"></span> Weekly operations</a></li>
+				<li><a href="#tab-chart4" data-toggle="tab"><span class="fa fa-area-chart"></span> Alarm events</a></li>
+			</ul>
+			
+			
+			<div class="tab-content">
+				<div class="tab-pane fade bar-chart" id="tab-chart1">			
+					<bar-chart data="daily"></bar-chart>
+				</div>
+				<div class="tab-pane fade bar-chart" id="tab-chart2">			
+					<bar-chart data="weekly"></bar-chart>
+				</div>
+				<div class="tab-pane fade bar-chart" id="tab-chart4">
+					<bar-chart data="alarm"></bar-chart>
+				</div>
+			</div>
+			
+			<div class="page-header">
+				<h4>System Occupancy</h4>
+			</div>
+			<p>Follow this <a href="/arlozorov/map">link</a> for a detailed view of the system parking spaces.</p>
+			<div class="pie-chart">			
+				<pie-chart data="occupancy"></pie-chart>
+			</div>			
+			
+		</div> <!-- /container -->
+		<% include ../../footer %>
+		<% include ../../scripts %>
+		<% include ../scripts %>
+		<% include scripts %>
+		<script type="text/javascript" src="/js/aps/arlozorov/index.js"></script>
+	</body>
+</html>

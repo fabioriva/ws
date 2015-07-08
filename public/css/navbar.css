@@ -1,0 +1,13 @@
+/* Navbar styles
+-------------------------------------------------- */
+/* if navbar-fixed-top add */
+.navbar {
+	border-bottom: 0;
+	margin-bottom: 50px;
+}
+
+.brand-title {
+    color: #428bca;
+	color: #F09000;
+	font-family: 'Open Sans', sans-serif;
+}

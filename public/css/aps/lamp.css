@@ -1,0 +1,44 @@
+.lamp     
+{
+	position: absolute;
+    height: 20px;
+    width: 20px;
+	border: 1px solid #888888;
+    border-radius: 13px;
+}
+
+.lamp-green-off {
+	background-color: #e3f6ce;
+}
+
+.lamp-green-on {
+	background-color: #00ff00;
+}
+
+.lamp-yellow-off {
+	background-color: #f5f6ce;
+}
+
+.lamp-yellow-on {
+	background-color: #ffff00;
+}
+
+.lamp-red-off {
+	background-color: #f6cece;
+}
+
+.lamp-red-on {
+	background-color: #ff0000;
+}
+
+.lamp-red {
+	right: 15px;
+}
+
+.lamp-yellow {
+	right: 45px;
+}
+
+.lamp-green {
+	right: 75px;
+}

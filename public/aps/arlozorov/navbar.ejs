@@ -1,0 +1,60 @@
+<!-- Navigation -->
+<nav class="navbar navbar-default navbar-fixed-top navbar-inverse" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<a class="navbar-brand" href="//www.sotefinservice.com"><span class="brand-title">Sotefin Web Service</span></a>
+		</div>
+		<!-- Collect the nav links, forms, and other content for toggling -->
+		<div class="collapse navbar-collapse navbar-ex1-collapse">
+			<ul class="nav navbar-nav">
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-globe"></span>&nbsp;System&nbsp;<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/arlozorov/index">&nbsp;Statistics</a></li>
+						<li><a href="/arlozorov/device">&nbsp;Overview</a></li>
+						<li><a href="/arlozorov/map">&nbsp;Map</a></li>
+						<li><a href="/arlozorov/alarm">&nbsp;Alarms</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cogs"></span>&nbsp;Devices&nbsp;<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/arlozorov/elevator">Elevator</a></li>
+						<li><a href="/arlozorov/shuttle">Shuttle</a></li>
+						<li><a href="/arlozorov/silomat">Silomat&reg;</a></li>
+						<li><a href="/arlozorov/garage">Garage</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-flash"></span>&nbsp;PLC&nbsp;<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/arlozorov/plc/comm">TCP/IP Communication</a></li>
+						<li><a href="/arlozorov/plc/io/list">Digital I/O ( List View )</a></li>
+						<li><a href="/arlozorov/plc/io/graph">Digital I/O ( Graphic View )</a></li>
+					</ul>
+				</li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-database"></span>&nbsp;Logs&nbsp;<b class="caret"></b></a>
+					<ul class="dropdown-menu">
+						<li><a href="/arlozorov/history">Operation</a></li>
+						<li><a href="/arlozorov/history?dt1=&dt2=&dt3=&dt4=&filter1=all&filter2=alarm">Alarm</a></li>
+					</ul>
+				</li>
+			</ul>
+			<!--
+			<ul class="nav navbar-nav navbar-left"></ul>
+			-->
+			<ul class="nav navbar-nav navbar-right">
+				<li ng-show="active"><a href="/arlozorov/alarm"><span class="label label-danger" id="alarm">ALARM</span></a></li>
+				<li><a href="/arlozorov/plc/comm"><span class="label" id="comm"></span></a></li>
+				<li><a href="/logout">Logout <span class="fa fa-sign-out"></span></a></li>
+			</ul>
+		</div><!-- /.navbar-collapse -->
+	</div>
+</nav>

@@ -1,0 +1,5 @@
+mysql -u webservice -p database < filename.sql
+example : 
+mysql -u webservice -p ws_ipark < ws_ipark.sql
+ 
+

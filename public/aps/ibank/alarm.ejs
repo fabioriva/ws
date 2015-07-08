@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include head %>
+		<link href="/aps/ibank/css/alarm.css" rel="stylesheet" media="screen">
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include log %>
+		<!-- Base Pagesheet -->
+		<div class="container">
+		<div class="page-header">
+			<h3>System Devices <small>Iron Bank &middot; Auckland &middot; New Zealand</small></h3>
+		</div>
+		
+		<div class="al-container">
+			<h4 style="color: #d9534f; padding: 10px 0 0 18px;">Active alarms</h4>
+			<div id="al-log-container">
+				<div>
+					<span id="al<%= al_id %>" style="font-family: monospace;" ng-bind-html="al_<%= al_id %>.msg"></span>
+				</div>
+			</div>
+		</div>
+		<!-- nav-pills -->
+		<!-- Tower 1-2 -->
+		<ul class="nav nav-pills">
+			<% if(al_id == 1) { %>
+			<li class="active">
+			<% } else { %>
+			<li>
+			<% } %>
+				<a href="../alarm/1"><span class="badge pull-right" ng-bind="al_1.active"></span>Tower 1</a>
+			</li>
+			<% if(al_id == 2) { %>
+			<li class="active">
+			<% } else { %>
+			<li>
+			<% } %>
+				<a href="../alarm/2"><span class="badge pull-right" ng-bind="al_2.active"></span>Tower 2</a>
+			</li>
+		</ul>
+		<!-- Garages A/B/C -->
+		<ul class="nav nav-pills">
+			<% if(al_id == 3) { %>
+			<li class="active">
+			<% } else { %>
+			<li>
+			<% } %>
+				<a href="../alarm/3"><span class="badge pull-right" ng-bind="al_3.active">0</span>Garage A</a>
+			</li>
+			<% if(al_id == 4) { %>
+			<li class="active">
+			<% } else { %>
+			<li>
+			<% } %>
+				<a href="../alarm/4"><span class="badge pull-right" ng-bind="al_4.active">0</span>Garage B</a>
+			</li>
+			<% if(al_id == 5) { %>
+			<li class="active">
+			<% } else { %>
+			<li>
+			<% } %>
+				<a href="../alarm/5"><span class="badge pull-right" ng-bind="al_5.active">0</span>Garage C</a>
+			</li>
+		</ul>
+		
+		</div> <!-- /container -->
+		<% include footer %>
+		<% include scripts %>
+		<script type="text/javascript" src="/aps/ibank/js/alarm.js"></script>
+	</body>
+</html>

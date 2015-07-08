@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include ../head %>
+		<link href="/css/aps/arlozorov/plc_io.css" rel="stylesheet" media="screen">
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include ../log %>
+		<!-- Base Pagesheet -->
+		<div class="container">
+			<div class="page-header">
+				<h3>PLC Digital I/O <small>Arlozorov &middot; Tel Aviv &middot; Israel</small></h3>
+			</div>
+			<!-- Nav tabs -->
+			<ul class="nav nav-tabs" id="tab-io">
+				<li><a href="#tab-io-1" data-toggle="tab">Rack 1</a></li>
+				<li><a href="#tab-io-2" data-toggle="tab">Rack 2</a></li>
+			</ul>		
+			<div class="tab-content">
+				<div class="tab-pane fade" id="tab-io-1">	
+					<span ng-repeat="card in rack_el1.cards">
+						<div class="page-header">
+							<h5 class="bs-callout bs-callout-info">Card #{{card.nr}} <small>Type {{card.type}}</small><a class="no-underline pull-right" href="/arlozorov/plc/io/graph">
+							<span class="fa fa-search"></span>&nbsp; Graphic View</a></h5>
+						</div>
+						<div class="row">
+							<span ng-repeat="byte in card.bytes">
+								<div class="col-md-6">
+									<strong><h4 class="text-primary">Byte <span ng-bind="byte.label"></span></h4></strong>
+									<table class="table table-bordered table-condensed table-striped">
+										<tr ng-repeat="bit in byte.bits">
+											<td class="bit-address" title="Bit Address">{{bit.type}}{{bit.byte}}.{{bit.bit}}</td>
+											<td class="bit-status" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="Bit Status">{{bit.status}}</td>
+											<td class="bit-label" title="Bit Label">{{bit.label}}</td>
+											<td class="bit-info" title="Bit Info">{{bit.text}}</td>
+										</tr>
+									</table>
+								</div>
+							</span>
+						</div>
+					</span>
+				</div>
+				<div class="tab-pane fade" id="tab-io-2">	
+					<span ng-repeat="card in rack_el2.cards">
+						<div class="page-header">
+							<h5 class="bs-callout bs-callout-info">Card #{{card.nr}} <small>Type {{card.type}}</small><a class="no-underline pull-right" href="/arlozorov/plc/io/graph">
+							<span class="fa fa-search"></span>&nbsp; Graphic View</a></h5>
+						</div>
+						<div class="row">
+							<span ng-repeat="byte in card.bytes"> 
+								<div class="col-md-6">
+									<strong><h4 class="text-primary">Byte <span ng-bind="byte.label"></span></h4></strong>
+									<table class="table table-bordered table-condensed table-striped">
+										<tr ng-repeat="bit in byte.bits">
+											<td class="bit-address" title="Bit Address">{{bit.type}}{{bit.byte}}.{{bit.bit}}</td>
+											<td class="bit-status" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="Bit Status">{{bit.status}}</td>
+											<td class="bit-label" title="Bit Label">{{bit.label}}</td>
+											<td class="bit-info" title="Bit Info">{{bit.text}}</td>
+										</tr>
+									</table>
+								</div>
+							</span>
+						</div>
+					</span>
+				</div>
+			</div>
+		</div> <!-- /container -->
+		<% include ../../footer %>
+		<% include ../../scripts %>
+		<% include ../scripts %>
+		<% include scripts %>
+		<script type="text/javascript" src="/js/aps/arlozorov/plc_io.js"></script>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+body {
+	background-color: #CEECF5;
+}
+.inner-container {
+	width: 90%;
+	margin: 0 auto;
+}
+
+.jumbotron {
+	text-align: center;
+	/*background-color: #00ccff;*/
+	/*border: 1px solid #81DAF5;*/
+	color: #808080;
+	/*font-family: 'Open Sans', sans-serif;*/
+}
+
+.media, .row {
+	margin: 35px 0;
+	font-family: 'Open Sans', sans-serif;
+}
+
+.message-box {
+	overflow-y: scroll;
+	height: 200px;
+	/*font-family: Menlo, Monaco, Consolas, "Courier New", monospace;*/
+	font-size: 12px;
+}

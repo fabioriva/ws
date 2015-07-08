@@ -1,0 +1,46 @@
+.log-container {
+	background-color: #f8f8f8;
+	border-bottom: 1px solid #f0f0f0;
+	position: fixed;
+	height: 25px;
+	line-height: 25px;
+	top: 51px;
+	width: 100%;
+	z-index: 1029;	// navbar z-index = 1030
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+	font-size: 12px;
+}
+
+//.log-console {
+//	display: inline-block;
+//	vertical-align: middle;
+//}
+
+@screen-lg-min: 1200px;
+@screen-md-min: 992px;
+@screen-sm-min: 768px;
+
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+
+.log-container {
+	display: none;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: @screen-sm-min) {
+	.log-container {
+		display: none;
+	}
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: @screen-md-min) {
+	.log-container {
+		display: inline;
+	}
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: @screen-lg-min) {
+	.log-container {
+		display: inline;
+	}
+}

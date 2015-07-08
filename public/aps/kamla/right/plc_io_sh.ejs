@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include ../head %>
+		<link href="/aps/kamla/css/plc_io_sh.css" rel="stylesheet" media="screen">
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include ../log %>
+		<!-- Base Pagesheet -->
+		<div class="container">
+		<div class="page-header">
+			<h3>PLC Digital I/O <small>Left Side &middot; Kamla Nagar &middot; New Delhi</small></h3>
+		</div>	
+		<div class="bs-callout bs-callout-info">
+			<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+			<h4>Digital Input/Output overview</h4>
+			<p>The I/O status is automatically updated. <strong>Tip</strong> : Hover on the label to get additional informations.</p>
+		</div>	
+		<!-- Nav tabs -->
+		<ul class="nav nav-tabs" id="tab-io">
+			<li><a href="#tab-io-sh01" data-toggle="tab">Shuttle 1</a></li>
+			<li><a href="#tab-io-sh02" data-toggle="tab">Shuttle 2</a></li>
+			<li><a href="#tab-io-sh03" data-toggle="tab">Shuttle 3</a></li>
+			<li><a href="#tab-io-sh04" data-toggle="tab">Shuttle 4</a></li>
+			<li><a href="#tab-io-sh05" data-toggle="tab">Shuttle 5</a></li>
+			<li><a href="#tab-io-sh06" data-toggle="tab">Shuttle 6</a></li>
+			<li><a href="#tab-io-sh07" data-toggle="tab">Shuttle 7</a></li>
+			<li><a href="#tab-io-sh08" data-toggle="tab">Shuttle 8</a></li>
+			<li><a href="#tab-io-sh09" data-toggle="tab">Shuttle 9</a></li>
+			<li><a href="#tab-io-sh10" data-toggle="tab">Shuttle 10</a></li>
+			<li><a href="#tab-io-sh11" data-toggle="tab">Shuttle 11</a></li>
+			<li><a href="#tab-io-sh12" data-toggle="tab">Shuttle 12</a></li>
+		</ul>
+		<div class="io">
+		<div class="tab-content">
+			<!-- shuttle 1 -->
+			<div class="tab-pane fade active" id="tab-io-sh01">			
+				<div class="rack" id="r01">
+					<span bindonce ng-repeat="card in rack_sh01">
+					<div class="card" bo-id="'r01c0'+ card.nr">
+						<div class="title">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="b-label" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type">Type {{card.type}}</div>
+					</div>
+					</span>
+				</div>
+			</div>
+			<!-- shuttle 2 -->
+			<div class="tab-pane fade" id="tab-io-sh02">			
+				<div class="rack" id="r02">
+					<span bindonce ng-repeat="card in rack_sh02">
+					<div class="card" bo-id="'r02c0'+ card.nr">
+						<div class="title">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="b-label" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type">Type {{card.type}}</div>
+					</div>
+					</span>
+				</div>
+			</div>
+			<!-- shuttle 3 -->
+			<div class="tab-pane fade" id="tab-io-sh03">			
+				<div class="rack" id="r03">
+					<span bindonce ng-repeat="card in rack_sh03">
+					<div class="card" bo-id="'r03c0'+ card.nr">
+						<div class="title">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="b-label" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type">Type {{card.type}}</div>
+					</div>
+					</span>
+				</div>
+			</div>
+			<!-- shuttle 4 -->
+			<div class="tab-pane fade" id="tab-io-sh04">			
+				<div class="rack" id="r04">
+					<span bindonce ng-repeat="card in rack_sh04">
+					<div class="card" bo-id="'r04c0'+ card.nr">
+						<div class="title">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="b-label" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type">Type {{card.type}}</div>
+					</div>
+					</span>
+				</div>
+			</div>
+			<!-- shuttle 5 -->
+			<div class="tab-pane fade" id="tab-io-sh05">			
+				<div class="rack" id="r05">
+					<span bindonce ng-repeat="card in rack_sh05">
+					<div class="card" bo-id="'r05c0'+ card.nr">
+						<div class="title">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="b-label" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type">Type {{card.type}}</div>
+					</div>
+					</span>
+				</div>
+			</div>
+			<!-- shuttle 6 -->
+			<div class="tab-pane fade" id="tab-io-sh06">			
+				<div class="rack" id="r06">
+					<span bindonce ng-repeat="card in rack_sh06">
+					<div class="card" bo-id="'r06c0'+ card.nr">
+						<div class="title">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="b-label" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type">Type {{card.type}}</div>
+					</div>
+					</span>
+				</div>
+			</div>
+			<!-- shuttle 7 -->
+			<div class="tab-pane fade" id="tab-io-sh07">			
+				<div class="rack" id="r07">
+					<span bindonce ng-repeat="card in rack_sh07">
+					<div class="card" bo-id="'r07c0'+ card.nr">
+						<div class="title">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="b-label" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type">Type {{card.type}}</div>
+					</div>
+					</span>
+				</div>
+			</div>
+			<!-- shuttle 8 -->
+			<div class="tab-pane fade" id="tab-io-sh08">			
+				<div class="rack" id="r08">
+					<span bindonce ng-repeat="card in rack_sh08">
+					<div class="card" bo-id="'r08c0'+ card.nr">
+						<div class="title">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="b-label" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type">Type {{card.type}}</div>
+					</div>
+					</span>
+				</div>
+			</div>
+			<!-- shuttle 9 -->
+			<div class="tab-pane fade" id="tab-io-sh09">			
+				<div class="rack" id="r09">
+					<span bindonce ng-repeat="card in rack_sh09">
+					<div class="card" bo-id="'r09c0'+ card.nr">
+						<div class="title">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="b-label" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type">Type {{card.type}}</div>
+					</div>
+					</span>
+				</div>
+			</div>
+			<!-- shuttle 10 -->
+			<div class="tab-pane fade" id="tab-io-sh10">			
+				<div class="rack" id="r10">
+					<span bindonce ng-repeat="card in rack_sh10">
+					<div class="card" bo-id="'r10c0'+ card.nr">
+						<div class="title">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="b-label" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type">Type {{card.type}}</div>
+					</div>
+					</span>
+				</div>
+			</div>
+			<!-- shuttle 11 -->
+			<div class="tab-pane fade" id="tab-io-sh11">			
+				<div class="rack" id="r11">
+					<span bindonce ng-repeat="card in rack_sh11">
+					<div class="card" bo-id="'r11c0'+ card.nr">
+						<div class="title">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="b-label" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type">Type {{card.type}}</div>
+					</div>
+					</span>
+				</div>
+			</div>
+			<!-- shuttle 12 -->
+			<div class="tab-pane fade" id="tab-io-sh12">			
+				<div class="rack" id="r12">
+					<span bindonce ng-repeat="card in rack_sh12">
+					<div class="card" bo-id="'r12c0'+ card.nr">
+						<div class="title">Card {{card.nr}}</div>
+						<span bindonce ng-repeat="byte in card.bytes">
+							<div class="b-label" bo-id="'label-' + byte.label">Byte {{byte.label}}</div>
+							<div bindonce ng-repeat="bit in byte.bits">
+								<span class="bit-id" bo-id="'l-id-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">{{bit.label}}</span>
+								<span class="bit-st" id="l-st-{{bit.cpu}}{{bit.type}}{{bit.byte}}{{bit.bit}}" title="{{bit.text}}" >{{bit.status}}</span>
+								<span class="bit-nr" bo-id="'l-nr-' + bit.cpu + bit.type + bit.byte + bit.bit" title="{{bit.text}}">.{{$index}}</span>
+							</div>
+						</span>
+					<div class="type">Type {{card.type}}</div>
+					</div>
+					</span>
+				</div>
+			</div>
+			
+		</div>
+		</div> <!-- /io AngularJS PlcioCtrl-->
+
+		</div> <!-- /container -->
+		<% include ../footer %>
+		<% include ../scripts %>
+		<script type="text/javascript">activeTab('tab-io', <%= tab_active %>);</script>
+		<script type="text/javascript" src="/js/bindonce.js"></script>
+		<script type="text/javascript" src="/aps/kamla/right/js/comm.js"></script>
+		<script type="text/javascript" src="/aps/kamla/right/js/log.js"></script>
+		<script type="text/javascript" src="/aps/kamla/right/js/plc_io_sh.js"></script>
+	</body>
+</html>

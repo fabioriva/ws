@@ -1,0 +1,39 @@
+.log-container {
+  background-color: #e0e0e0;
+  border-bottom: 1px solid #d0d0d0;
+  position: fixed;
+  height: 25px;
+  line-height: 25px;
+  top: 51px;
+  width: 100%;
+  z-index: 1029;
+  font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+  font-size: 12px;
+}
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+.log-container {
+  display: none;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .log-container {
+    display: none;
+  }
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .log-container {
+    display: inline;
+  }
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .log-container {
+    display: inline;
+  }
+}
+
+body {
+	padding-top: 50px;
+}

@@ -1,0 +1,138 @@
+body {
+	background-color: #00ccff;/*#707070;*/
+	color: #ffffff;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: 'Open Sans', sans-serif;
+	text-align: center;
+}
+
+.inner {
+	padding: 30px;
+}
+
+.lead {
+	margin-bottom: 30px;
+}
+
+.ws-container {
+	position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.ws-docs-booticon-outline {
+	background-color: transparent;
+	border: 2px solid #ffffff;
+}
+
+.ws-docs-booticon-lg {
+	width: 124px;
+	height: 124px;
+	font-size: 100px;
+	line-height: 124px;
+}
+
+.ws-docs-booticon {
+	margin: 0 auto;
+	display: block;
+	color: #ffffff;
+	font-weight: 500;
+	border-radius: 15%;
+	cursor: default;
+}
+
+.ws-docs-title {
+	font-size: 24px;
+	/*color: #555;*/
+}
+
+.ws-docs-link {
+	color: #f8f8f8;
+}
+
+.ws-docs-link:hover, .ws-docs-link:focus, .ws-docs-link:active {
+	color: #428bca;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+.btn-outline-inverse {
+	color: #ffffff;
+	background-color: transparent;
+	border-color: #ffffff;
+}
+.btn-outline-inverse:hover, .btn-outline-inverse:focus, .btn-outline-inverse:active {
+	color: #428bca;
+	text-shadow: none;
+	background-color: #fff;
+	border-color: #fff;
+}
+
+.ws-docs-footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+	display: none;
+}
+/*
+@font-face {
+    font-family: "Open Sans";
+    font-style: normal;
+    font-weight: 300;
+    src: local("Open Sans Light"), local("OpenSans-Light"), url("//fonts.gstatic.com/s/opensans/v10/DXI1ORHCpsQm3Vp6mXoaTegdm0LZdjqr5-oayXSOefg.woff2") format("woff2"), url("//fonts.gstatic.com/s/opensans/v10/DXI1ORHCpsQm3Vp6mXoaTXhCUOGz7vYGh680lGh-uXM.woff") format("woff");
+}
+*/
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+	.ws-docs-footer {
+		display: block;
+	}
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+	.ws-docs-footer {
+		display: block;
+	}
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+	.ws-docs-footer {
+		display: block;
+	}
+}
+
+#navbar-shadow {
+	-webkit-box-shadow: 3px 3px 2px rgba(0,0,0,0.5);
+	-moz-box-shadow: 3px 3px 2px rgba(0,0,0,0.5);
+	box-shadow: 3px 3px 2px rgba(0,0,0,0.5);
+}
+
+.ws-log-container {
+	background-color: #fff;
+	color: #000;
+	margin: 30px auto 30px;
+	/*display: block;*/
+	border-radius: 5px;
+	/*overflow-y: scroll;*/
+	height: 150px;
+	width: 100%;
+	
+	padding: 10px 0 10px 15px;
+	text-align: left;
+	font-size: x-small;
+	border: 1px solid #3cf;
+	
+	-webkit-box-shadow: 2px 1px rgba(0,102,255,0.4);
+	-moz-box-shadow: 2px 1px rgba(0,102,255,0.4);
+	box-shadow: 2px 1px rgba(0,102,255,0.4);
+}
+
+.ws-log {
+
+	overflow-y: scroll;
+	height: 100px;
+	/*display: none;*/
+}
+

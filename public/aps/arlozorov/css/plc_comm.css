@@ -1,0 +1,18 @@
+.panel-heading {
+	font-size: 16px;
+	font-weight: bold;
+}
+
+.panel-footer {
+	position: relative;
+	font-size: 16px;
+	font-weight: bold;
+	height: 40px;
+}
+
+.message-box {
+	overflow-y: scroll;
+	height: 154px;
+	font-family: Menlo, Monaco, Consolas, "Courier New", monospace;
+	font-size: 12px;
+}

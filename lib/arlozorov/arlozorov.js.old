@@ -1,0 +1,337 @@
+var app = require('http').createServer()
+, sio = require('socket.io').listen(app)
+, utility = require('./Tools')
+, Server = require('./Server.js')
+, Client = require('./Client.js')
+, Ping = require('./Ping.js');
+
+var ws_alarms = require('./Alarm.js');
+var ws_device = require('./Device.js');
+var ws_el = require('./Elevator.js');
+var ws_sh = require('./Shuttle.js');
+var ws_io = require('./I_O.js');
+var ws_map = require('./Map.js');
+var ws_messages = require('./Log.js');
+
+sio.set('log', 0)	// socket.io log level
+var HTTP = 3003;	// socket.io server port
+app.listen(process.env.PORT || HTTP);
+
+/*
+ * Const
+ */
+
+//var OFFLINE = 0;
+//var ONLINE = 1;
+var FALSE = 0;
+var TRUE = 1;
+var READ = 0x72;
+var WRIT = 0x77;
+
+// IO
+var LEN_IO1 = 20;
+var LEN_IO2 = 6;
+var LEN_IO = LEN_IO1 + LEN_IO2;
+// Device
+var DEVICE = 3;
+var DEVICE_OFFSET = 16;
+var MEASURE = 20;
+var QUEUE = 10 * 2;
+var LEN_DEVICE = (( DEVICE ) * DEVICE_OFFSET ) + MEASURE + QUEUE;
+// Elevator
+var EL = 3;
+var EL_OFFSET = 50;
+var LEN_EL = ( EL * EL_OFFSET );
+// Alarms
+var AL = 3;
+var AL_OFFSET = 4;
+var LEN_AL = ( AL * AL_OFFSET );
+// Total Data length
+var LEN_DATA = LEN_IO + LEN_DEVICE + LEN_EL + LEN_AL;	// DB430
+
+// Map
+var STALL_NUMBER = 42;
+var STALL_OFFSET = 8;
+var LEN_MAP = STALL_NUMBER * STALL_OFFSET;
+
+var plc = {
+	type: '315-2 PN/DP',
+	addr: '140.80.32.12',
+	alive: FALSE,
+	conn_1: {	// data service				
+		port: 2012,
+		connected: FALSE,
+		data_len: LEN_DATA
+		},	
+	conn_2: {	// map service		
+		port: 2013,
+		connected: FALSE,
+		data_len: LEN_MAP
+		},
+	conn_3: {	// log service
+		port: 4003,
+		connected: FALSE,
+		data_len: 0
+		}
+};
+
+var db = {
+	host: 'sotefinservice.com',
+	user: 'webservice',
+	password: 'h0savP6L',
+	database: 'ws_arlozorov'
+};
+
+var network = new Ping (plc);
+
+network.on('status', function () {
+	//console.log('[ From Ping.js ]', plc.type, plc.addr, plc.alive, plc.conn_1.port, plc.conn_1.connected, plc.conn_2.port, plc.conn_2.connected, plc.conn_3.port, plc.conn_3.connected );
+	sio.of('/ws/comm').emit('status', plc);
+});
+
+/*
+ * Client 1
+ */
+var el = new ws_alarms(1, 'Arlozorov', 'Asia/Jerusalem', 'Elevator', 1, 32);
+el.getAlarm(db, 1, 32, function (rows) {	
+	for (var i in rows) {
+		el.alarms.alarm[i].description = rows[i].alarm;
+	}
+});
+var sh = new ws_alarms(2, 'Arlozorov', 'Asia/Jerusalem', 'Shuttle', 33, 64);
+sh.getAlarm(db, 1, 32, function (rows) {	
+	for (var i in rows) {
+		sh.alarms.alarm[i].description = rows[i].alarm;
+	}
+});
+var eu = new ws_alarms(3, 'Arlozorov', 'Asia/Jerusalem', 'Silomat', 33, 64);//65, 96);
+eu.getAlarm(db, 1, 32, function (rows) {	
+	for (var i in rows) {
+		eu.alarms.alarm[i].description = rows[i].alarm;
+	}
+});
+
+var wsdata = new Client (plc, plc.conn_1);
+
+wsdata.on('recv', function(data) {
+	
+	var io1 = ws_io.readIo(00, LEN_IO1, data, ws_io.Rack_1);
+	var io2 = ws_io.readIo(20, LEN_IO2, data, ws_io.Rack_2);
+	var racks = [io1, io2];
+	sio.of('/plc_io').emit('refresh:plcio', { plcio: racks });
+	
+	var devices = ws_device.readDevices(26, LEN_DEVICE, data)
+	sio.of('/devices').emit('refresh:devices', { devices: JSON.stringify(devices) });
+	
+	var al_el = el.sendAlarms(el.setAlarms(264, AL_OFFSET, data, el.alarms));
+	var al_sh = sh.sendAlarms(sh.setAlarms(268, AL_OFFSET, data, sh.alarms));
+	var al_eu = eu.sendAlarms(eu.setAlarms(272, AL_OFFSET, data, eu.alarms));
+	var alarms = [al_el, al_sh, al_eu];
+	sio.of('/ws/alarm').emit('refresh:alarms', { alarms: alarms });
+
+	//if (plc.queue.length == 0) {
+		var msg = new Buffer(s7Msg(READ, 'D', 430, 0, LEN_DATA, 0));
+		wsdata.enqueueMsg(msg);
+	//}
+});
+
+/*
+ * Client 2
+ */
+
+var wsmap = new Client (plc, plc.conn_2);
+
+wsmap.on('recv', function(data) {
+	
+	var map = ws_map.readMap(0, LEN_MAP, data);
+	sio.of('/map').emit('refresh:map', { map: JSON.stringify(map) });	
+	
+	var statistics = [map.spaces, map.free, map.busy, map.lock];
+	sio.of('/map/statistics').emit('refresh:map_stat', { map: JSON.stringify(statistics) });
+	
+});
+
+/*
+ * Log server
+ */
+ 
+var wslog = new Server (plc, plc.conn_3);
+
+wslog.on('recv', function(data) {
+
+	var stx = utility.BytesToInt(data[0], data[1]);
+	switch (stx) {
+		case 0x264 :
+			ws_messages.historyLog(db, data, function (log) {
+				sio.of('/ws/log').emit('log', { log: log });
+			});
+			break;
+				
+		case 0x26d :
+			//var log = diagnosticLog(data);
+			break;	    
+	}	
+});
+
+/*
+ *	socket.io namespaces
+ */
+ 
+ var sio_comm = sio
+	.of('/ws/comm')
+	.on('connection', function (socket) {
+	
+	});
+ 
+ var sio_log = sio
+	.of('/ws/log')
+	.on('connection', function (socket) {
+	
+	});
+	
+ var sio_alarm = sio
+	.of('/ws/alarm')
+	.on('connection', function (socket) {
+	
+		wsdata.enqueueMsg(new Buffer(s7Msg(READ, 'D', 430, 0, LEN_DATA, 0)));
+	});
+	
+ var sio_alarm_stat = sio
+	.of('/alarm/statistics')
+	.on('connection', function (socket) {
+	
+		// query 1
+		require('./AlarmStatistics.js').alarmStatistics(db, 8, function (data) {
+			console.log('data :\n', data);
+			sio.of('/alarm/statistics').emit('refresh:query_01', { query: JSON.stringify(data) });
+		});
+		// query 2
+		require('./AlarmStatistics.js').alarmStatistics(db, 9, function (data) {
+			console.log('data :\n', data);
+			sio.of('/alarm/statistics').emit('refresh:query_02', { query: JSON.stringify(data) });
+		});
+
+		// var data = [120, 60, 30, 30];
+		// sio.of('/alarm/statistics').emit('refresh:alarm_stat', { data: JSON.stringify(data) });
+	});
+ 
+var sio_devices = sio
+	.of('/devices')
+	.on('connection', function (socket) {
+	
+		socket.emit('paint:devices', {
+			devices: JSON.stringify(ws_device.Devices)
+		});
+		
+		wsdata.enqueueMsg(new Buffer(s7Msg(READ, 'D', 430, 0, LEN_DATA, 0)));
+	});
+	
+var sio_elevator = sio
+	.of('/elevator')
+	.on('connection', function (socket) {
+		
+		wsdata.enqueueMsg(new Buffer(s7Msg(READ, 'D', 430, 0, LEN_DATA, 0)));
+	});
+	
+var sio_shuttle = sio
+	.of('/shuttle')
+	.on('connection', function (socket) {
+		
+		wsdata.enqueueMsg(new Buffer(s7Msg(READ, 'D', 430, 0, LEN_DATA, 0)));
+	});
+	
+var sio_map = sio
+	.of('/map')
+	.on('connection', function (socket) {
+	
+		socket.emit('paint:map', {
+			map: JSON.stringify(ws_map.Map)
+		});
+		socket.on('update:map', function () {
+			var msg = new Buffer(s7Msg(READ, 'D', 440, 2, LEN_MAP, 0));
+			//wsmap.sendPlc(msg);
+			wsmap.enqueueMsg(msg);
+		});
+		socket.on('edit:map', function (data) {
+			var o = JSON.parse(data.data);
+			console.log('Edit stall ' + o.nr + ' with reference ' + o.value);
+			var b = e.nr * 2;
+			
+			var msg = new Buffer(s7Msg(WRIT, 'D', 10, b, 2, o.value));
+			//wsmap.sendPlc(msg);
+			wsmap.enqueueMsg(msg);
+		});
+		
+		wsmap.enqueueMsg(new Buffer(s7Msg(READ, 'D', 440, 2, LEN_MAP, 0)));
+	});
+	
+var sio_map_stat = sio
+	.of('/map/statistics')
+	.on('connection', function (socket) {
+	
+		socket.on('update:map_stat', function () {
+			var msg = new Buffer(s7Msg(READ, 'D', 440, 2, LEN_MAP, 0));
+			//wsmap.sendPlc(msg);
+			wsmap.enqueueMsg(msg);
+		});
+		
+		wsmap.enqueueMsg(new Buffer(s7Msg(READ, 'D', 440, 2, LEN_MAP, 0)));	
+	});
+ 
+var sio_plc_io = sio
+	.of('/plc_io')
+	.on('connection', function (socket) {
+	
+		socket.emit('paint:plcio-io1', {
+			plcio: JSON.stringify(ws_io.Rack_1)
+		});	
+		socket.emit('paint:plcio-io2', {
+			plcio: JSON.stringify(ws_io.Rack_2)
+		});	
+		
+		wsdata.enqueueMsg(new Buffer(s7Msg(READ, 'D', 430, 0, LEN_DATA, 0)));	
+	});
+	
+
+sio.sockets.on('connection', function (socket) {
+
+    console.log('socket.io : client id ' + socket.id + ' connected on port ' + (process.env.PORT || HTTP));
+});
+
+/*
+ * S7 message 
+ */
+function s7Msg(Mode, Type, Db, byteIni, byteLen, Buffer) {
+
+	var msg = new Array(16);   
+	var db  = [0, 0], ini = [0, 0], len = [0, 0], buf  = [0, 0];
+	
+	Db = utility.IntToBytes(Db, db);
+	byteIni = utility.IntToBytes(byteIni, ini);
+	byteLen = utility.IntToBytes(byteLen, len);
+	Buffer = utility.IntToBytes(Buffer, buf);
+
+	switch (Type) {
+	
+		case 'D': 
+			msg[0]  = 0x02;			// STX
+			msg[1]  = 0x10;			// Msg len
+			msg[2]  = Mode;			// Mode
+			msg[3]  = 0x84;			// Type E:0x81, A:0x82, M:0x83, D:0x84
+			msg[4]  = db[1];		// Db nr
+			msg[5]  = db[0];		// Db nr
+			msg[6]  = ini[1];		// Byte init
+			msg[7]  = ini[0];		// Byte init
+			msg[8]  = len[1];		// Byte len
+			msg[9]  = len[0];		// Byte len
+			msg[10] = 0x00;			// Buffer
+			msg[11] = 0x00;			// Buffer
+			msg[12] = buf[1];		// Buffer
+			msg[13] = buf[0];		// Buffer
+			msg[14] = 0x00;			// 
+			msg[15] = 0x03;			// ETX
+
+	}	
+	//console.log(msg);
+	return msg;	
+}

@@ -1,0 +1,264 @@
+/*.map {
+	width: 100%;
+}*/
+
+.tab-content {
+	position: relative;
+	margin-top: 25px;
+}
+
+.t {
+	/*position: relative;
+	margin-left: auto;
+	margin-right: auto;*/
+}
+.l {
+	position: relative;
+	background-color: #F0F0F0;
+	border: 1px solid #888;
+	margin-bottom: 4px;
+	/*margin-left: auto;
+	margin-right: auto;*/
+	height: 224px;
+	width: 560px;
+	
+}
+
+#l-1 {
+	height: 224px;
+	width: 560px;
+	
+}
+#l-1 {
+	height: 224px;
+	width: 560px;
+	
+}
+#l-3 {
+	height: 170px;
+	width: 560px;
+	
+}
+#l-4 {
+	height: 170px;
+	width: 560px;
+	
+}
+
+.s {
+	position: absolute;
+	border: 1px solid #000;
+	height: 50px;
+	width: 35px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 50px;
+}
+
+.el{
+	position: absolute;
+	background-color: #C0C0C0;
+	border: 1px solid #000;
+	font-weight: bold;
+	height: 50px;
+	width: 35px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 50px;
+}
+
+.sh{
+	position: absolute;
+	background-color: #C0C0C0;
+	border: 1px solid #000;
+	font-weight: bold;
+	height: 50px;
+	width: 35px;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 50px;
+}
+
+.st {
+	/*font-family: Arial, "sans-serif";*/
+	font-size: 12px;
+	font-weight: bold;
+}
+
+.st:hover {
+	/*color: #FFFFFF;*/
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+.s-free {
+	background-color: #00FF00;
+}
+.s-busy {
+	background-color: #FF0000;
+}
+.s-lock {
+	background-color: #FF00FF;
+}
+.s-rsvd {
+	background-color: #FFFF00;
+}
+.s-papa {
+	background-color: #00FFFF;
+}
+
+.s-size {
+	background-color: #FFCC00;
+}
+
+.s-size {
+	background-color: #FFFFFF;
+}
+.s-size-1 {
+	background-color: #FFCC00;
+}
+.s-size-2 {
+	background-color: #FF3300;
+}
+.s-size-3 {
+	background-color: #CCCC00;
+}
+.s-size-4 {
+	background-color: #33FF99;
+}
+.s-size-5 {
+	background-color: #00CCFF;
+}
+.s-size-6 {
+	background-color: #66FFFF;
+}
+
+/*	Level -2 */
+#s-109	{ top:  10px; left: 514px }
+#s-108	{ top: 112px; left: 514px }
+#s-107 	{ top: 164px; left: 514px }
+#s-101 	{ top:  10px; left: 478px }
+#s-100 	{ top: 112px; left: 478px }
+#s-99 	{ top: 164px; left: 478px }
+#s-93 	{ top:  10px; left: 442px }
+#s-92 	{ top: 112px; left: 442px }
+#s-91 	{ top: 164px; left: 442px }
+#s-85	{ top:  10px; left: 406px }
+#s-84	{ top: 112px; left: 406px }
+#s-83 	{ top: 164px; left: 406px }
+#s-77 	{ top:  10px; left: 370px }
+#s-76 	{ top: 112px; left: 370px }
+#s-75 	{ top: 164px; left: 370px }
+#s-69 	{ top:  10px; left: 334px }
+#s-68 	{ top: 112px; left: 334px }
+#s-67 	{ top: 164px; left: 334px }
+#s-61	{ top:  10px; left: 298px }
+#s-60	{ top: 112px; left: 298px }
+#s-59 	{ top: 164px; left: 298px }
+#s-53 	{ top:  10px; left: 262px }
+#s-52 	{ top: 112px; left: 262px }
+#s-51 	{ top: 164px; left: 262px }
+#s-45	{ top:  10px; left: 226px }
+#s-44 	{ top: 112px; left: 226px }
+#s-43 	{ top: 164px; left: 226px }
+#s-38 	{ top:  10px; left: 190px }
+#s-37 	{ top: 112px; left: 190px }
+#s-32	{ top:  10px; left: 154px }
+#s-31	{ top: 112px; left: 154px }
+#s-26	{ top:  10px; left: 118px }
+#s-25 	{ top: 112px; left: 118px }
+#s-18	{ top:  10px; left: 82px }
+#s-17 	{ top: 112px; left: 82px }
+#s-10 	{ top:  10px; left: 46px }
+#s-9 	{ top: 112px; left: 46px }
+#s-2 	{ top:  10px; left: 10px }
+#s-1	{ top: 112px; left: 10px }
+#el-1	{ top:  61px; left: 98px }
+#el-2	{ top:  61px; left: 426px }
+
+/*	Level -1 */
+#s-112	{ top:  10px; left: 514px }
+#s-111	{ top: 112px; left: 514px }
+#s-110 	{ top: 164px; left: 514px }
+#s-104 	{ top:  10px; left: 478px }
+#s-103 	{ top: 112px; left: 478px }
+#s-102 	{ top: 164px; left: 478px }
+#s-96 	{ top:  10px; left: 442px }
+#s-95 	{ top: 112px; left: 442px }
+#s-94 	{ top: 164px; left: 442px }
+#s-88	{ top:  10px; left: 406px }
+#s-87	{ top: 112px; left: 406px }
+#s-86 	{ top: 164px; left: 406px }
+#s-80 	{ top:  10px; left: 370px }
+#s-79 	{ top: 112px; left: 370px }
+#s-78 	{ top: 164px; left: 370px }
+#s-72 	{ top:  10px; left: 334px }
+#s-71 	{ top: 112px; left: 334px }
+#s-70 	{ top: 164px; left: 334px }
+#s-64	{ top:  10px; left: 298px }
+#s-63	{ top: 112px; left: 298px }
+#s-62 	{ top: 164px; left: 298px }
+#s-56 	{ top:  10px; left: 262px }
+#s-55 	{ top: 112px; left: 262px }
+#s-54 	{ top: 164px; left: 262px }
+#s-48	{ top:  10px; left: 226px }
+#s-47 	{ top: 112px; left: 226px }
+#s-46 	{ top: 164px; left: 226px }
+#s-40 	{ top:  10px; left: 190px }
+#s-39 	{ top: 112px; left: 190px }
+#s-34	{ top:  10px; left: 154px }
+#s-33	{ top: 112px; left: 154px }
+#s-28	{ top:  10px; left: 118px }
+#s-27 	{ top: 112px; left: 118px }
+#s-20	{ top:  10px; left: 82px }
+#s-19 	{ top: 112px; left: 82px }
+#s-12 	{ top:  10px; left: 46px }
+#s-11 	{ top: 112px; left: 46px }
+#s-4 	{ top:  10px; left: 10px }
+#s-3	{ top: 112px; left: 10px }
+#el-1	{ top:  61px; left: 98px }
+#el-2	{ top:  61px; left: 426px }
+
+/*	Level B0 */
+#s-113	{ top:  10px; left: 514px }
+#s-105 	{ top:  10px; left: 478px }
+#s-97 	{ top:  10px; left: 442px }
+#s-89	{ top:  10px; left: 406px }
+#s-81 	{ top:  10px; left: 370px }
+#s-73 	{ top:  10px; left: 334px }
+#s-65	{ top:  10px; left: 298px }
+#s-57 	{ top:  10px; left: 262px }
+#s-49	{ top:  10px; left: 226px }
+#s-41 	{ top:  10px; left: 190px }
+#s-35	{ top:  10px; left: 154px }
+#s-29	{ top:  10px; left: 118px }
+#s-22	{ top:  10px; left: 82px }
+#s-21 	{ top: 112px; left: 82px }
+#s-14 	{ top:  10px; left: 46px }
+#s-13 	{ top: 112px; left: 46px }
+#s-6 	{ top:  10px; left: 10px }
+#s-5	{ top: 112px; left: 10px }
+#el-1	{ top:  61px; left: 98px }
+#el-2	{ top:  61px; left: 426px }
+
+/*	Level +1 */
+#s-114	{ top:  10px; left: 514px }
+#s-106 	{ top:  10px; left: 478px }
+#s-98 	{ top:  10px; left: 442px }
+#s-90	{ top:  10px; left: 406px }
+#s-82 	{ top:  10px; left: 370px }
+#s-74 	{ top:  10px; left: 334px }
+#s-66	{ top:  10px; left: 298px }
+#s-58 	{ top:  10px; left: 262px }
+#s-50	{ top:  10px; left: 226px }
+#s-42 	{ top:  10px; left: 190px }
+#s-36	{ top:  10px; left: 154px }
+#s-30	{ top:  10px; left: 118px }
+#s-24	{ top:  10px; left: 82px }
+#s-23 	{ top: 112px; left: 82px }
+#s-16 	{ top:  10px; left: 46px }
+#s-15 	{ top: 112px; left: 46px }
+#s-8 	{ top:  10px; left: 10px }
+#s-7	{ top: 112px; left: 10px }
+#el-1	{ top:  61px; left: 98px }
+#el-2	{ top:  61px; left: 426px }

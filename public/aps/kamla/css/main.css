@@ -1,0 +1,84 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  background-color: #ffffff;
+}
+footer {
+  /*
+  position: absolute;
+  bottom: 0;
+  */
+  width: 100%;
+  height: 50px;
+}
+.footer {
+  border-top: 1px solid #f0f0f0;
+  line-height: 39px;
+  vertical-align: middle;
+}
+.bs-callout {
+  background-color: #f0f0f0;
+  border-left-style: solid;
+  border-left-width: 3px;
+  border-left-color: #c0c0c0;
+  margin: 10px 5px;
+  padding: 10px 20px;
+}
+.bs-callout h4 {
+  margin-top: 0;
+  margin-bottom: 5px;
+}
+.bs-callout p:last-child {
+  margin-bottom: 0;
+}
+.bs-callout-danger {
+  background-color: #fdf7f7;
+  border-color: #d9534f;
+}
+.bs-callout-danger h4 {
+  color: #d9534f;
+}
+.bs-callout-info {
+  background-color: #f4f8fa;
+  border-color: #5bc0de;
+}
+.bs-callout-info h4 {
+  color: #5bc0de;
+}
+.bs-callout-warning {
+  background-color: #fcf8f2;
+  border-color: #f0ad4e;
+}
+.bs-callout-warning h4 {
+  color: #f0ad4e;
+}
+/* Extra small devices (phones, less than 768px) */
+/* No media query since this is the default in Bootstrap */
+body {
+  margin-top: 50px;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  body {
+    margin-top: 75px;
+  }
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  body {
+    margin-top: 50px;
+  }
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  body {
+    margin-top: 50px;
+  }
+}
+#navbar-shadow {
+	-webkit-box-shadow: 3px 3px 2px rgba(0,0,0,0.5);
+	-moz-box-shadow: 3px 3px 2px rgba(0,0,0,0.5);
+	box-shadow: 3px 3px 2px rgba(0,0,0,0.5);
+}

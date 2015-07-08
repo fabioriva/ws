@@ -1,0 +1,106 @@
+/* Info */
+.info-container {
+	margin-left: auto;
+	margin-right: auto;
+	width: 80%;	/*640px;*/
+}
+.col-1 {
+	padding-left: 10px !important;
+	width: 35%;
+}
+.col-2 {
+	width: 15%;
+}
+.col-3 {
+	width: 25%;
+}
+.col-4 {
+	width: 25%;
+}
+.hide {
+	display: none;
+}
+/* Sensors */
+.l {
+	position: absolute;
+    height: 20px;
+    width: 20px;
+    -moz-border-radius:5px;
+    -webkit-border-radius: 5px;
+    border-radius: 13px;
+	cursor: pointer;
+}
+
+.l-false
+{
+	background-color: #f5f6ce;  /* yellow */
+	/*display: none;*/
+}
+.l-true
+{
+	background-color: #ffff00;
+}
+#EHP{ left: 635px; top: 345px; }
+
+#FTXV { left: 195px; top: 248px; }
+#FTXH { left: 910px; top: 248px; }
+
+#FEMV-E { left: 215px; top: 165px; }
+#FEMV-R { left: 215px; top: 335px; }
+#FEMH-E { left: 895px; top: 165px; }
+#FEMH-R { left: 895px; top: 335px; }
+
+#MV { left: 490px; top: 175px; }
+#MH { left: 515px; top: 175px; }
+
+#ES { left: 515px; top: 248px; }
+#EH { left: 555px; top: 248px; }
+
+#EAL { left: 330px; top: 297px; }
+#EAR { left: 330px; top: 202px; }
+#EPL { left: 680px; top: 297px; }
+#EPR { left: 680px; top: 202px; }
+
+#EBV { left: 330px; top: 248px; }
+#EBH { left: 762px; top: 248px; }
+
+/*
+#MV { left: 500px; top: 135px; }
+#MH { left: 525px; top: 135px; }
+
+#ES { left: 535px; top: 190px; }
+#EH { left: 565px; top: 190px; }
+
+#EAL { left: 325px; top: 320px; }
+#EAR { left: 325px; top: 115px; }
+#EPL { left: 715px; top: 320px; }
+#EPR { left: 715px; top: 115px; }
+
+#EBV { left: 325px; top: 220px; }
+#EBH { left: 820px; top: 220px; }
+*/
+
+/* Motors */
+.m {
+	position: absolute;
+    height: 20px;
+    width: 20px;
+    -moz-border-radius:10px;
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+	cursor: pointer;
+}
+
+.m-false {
+	background-color: #0000ff;
+	display: none;
+}
+.m-true {
+	background-color: #ffff00;
+}
+
+#M1 { left: 210px; top: 220px; }
+#M2 { left: 935px; top: 220px; }
+#M3 { left: 430px; top: 220px; }
+#M4 { left: 380px; top: 220px; }
+#M5 { left: 730px; top: 220px; }

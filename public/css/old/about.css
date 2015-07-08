@@ -1,0 +1,81 @@
+body {
+	background-color: #00ccff;/*#707070;*/
+	color: #f0f0f0;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	text-align: center;
+}
+
+.inner {
+	padding: 30px;
+}
+
+.lead {
+	margin-bottom: 30px;
+}
+
+.ws-container {
+	margin: 13% auto 13% auto;
+	text-align: left;
+	width: 240px;
+}
+
+.ws-docs-booticon-outline {
+	background-color: transparent;
+	border: 1px solid #ffffff;
+}
+
+.ws-docs-booticon-lg {
+	width: 144px;
+	height: 144px;
+	font-size: 108px;
+	line-height: 144px;
+}
+
+.ws-docs-booticon {
+	margin: 0 auto 30px;
+	display: block;
+	color: #ffffff;
+	font-weight: 500;
+	border-radius: 15%;
+	cursor: default;
+}
+
+.ws-docs-title {
+	font-size: 24px;
+	/*color: #555;*/
+}
+
+.ws-docs-link {
+	color: #f8f8f8;
+}
+
+.ws-docs-link:hover, .ws-docs-link:focus, .ws-docs-link:active {
+	color: #428bca;
+	text-decoration: none;
+	text-shadow: none;
+}
+
+.btn-outline-inverse {
+	color: #ffffff;
+	background-color: transparent;
+	border-color: #ffffff;
+}
+.btn-outline-inverse:hover, .btn-outline-inverse:focus, .btn-outline-inverse:active {
+	color: #428bca;
+	text-shadow: none;
+	background-color: #fff;
+	border-color: #fff;
+}
+
+.ws-docs-footer {
+	position: fixed;
+	bottom: 0;
+	width: 100%;
+}
+
+#navbar-shadow {
+	-webkit-box-shadow: 3px 3px 2px rgba(0,0,0,0.5);
+	-moz-box-shadow: 3px 3px 2px rgba(0,0,0,0.5);
+	box-shadow: 3px 3px 2px rgba(0,0,0,0.5);
+}
+

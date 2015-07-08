@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html ng-app="<%= ng_app %>">
+	<head>
+		<% include ../head %>
+		<link href="/css/aps/device.css" rel="stylesheet" media="screen">
+		<link href="/css/aps/arlozorov/shuttle.css" rel="stylesheet" media="screen">
+	</head>
+	<body ng-controller="<%= ng_controller %>">
+		<% include navbar %>
+		<% include ../log %>
+		<!-- Base Pagesheet -->
+		<div class="container">
+			<div class="page-header">
+				<h3>Transfer Area Overview <small>Arlozorov &middot; Tel Aviv &middot; Israel</small></h3>
+			</div>
+			<p>
+				<!-- Nav Pills -->
+				<ul class="nav nav-pills">
+					<li role="presentation"><a href="/arlozorov/elevator">Elevator <span class="badge">0</span></a></li>
+					<li role="presentation"><a href="/arlozorov/shuttle">Shuttle <span class="badge">0</span></a></li>
+					<li role="presentation"><a href="/arlozorov/silomat">Silomat&reg; <span class="badge">0</span></a></li>
+					<li role="presentation" class="active"><a href="/arlozorov/garage">Garage <span class="badge">0</span></a></li>
+					<li role="presentation" class="pull-right"><a href="/arlozorov/alarm">Alarms <span class="badge-danger">0</span></a></li>
+				</ul>
+			</p><br>
+			<div class="row">
+				<!-- Light Panel -->
+				<div class="col-md-3">
+					<div class="panel panel-default" style="width: 195px; margin: 0 auto;">
+						<div class="panel-heading text-center"><strong>Light Panel</strong></div>
+							<table class="table table-condensed">
+								<tr>
+									<td class="text-center td-no-border td-left"></td>
+									<td class="text-center td-no-border td-center"><span ng-bind-html="l1" ng-style="{ color: getPanel(L1.status, 'green') }"></span></td>
+									<td class="text-center td-no-border td-right"></td>
+								</tr>
+								<tr>
+									<td class="text-center td-no-border td-left"><span ng-bind-html="l4" ng-style="{ color: getPanel(L4.status, 'green') }"></span></td>
+									<td class="text-center td-no-border td-center"><span ng-bind-html="l3" ng-style="{ color: getPanel(L1.status, 'red') }"></span></td>
+									<td class="text-center td-no-border td-right"><span ng-bind-html="l5" ng-style="{ color: getPanel(L5.status, 'green') }"></span></td>
+								</tr>
+								<tr>
+									<td class="text-center td-no-border td-left"></td>
+									<td class="text-center td-no-border td-center"><span ng-bind-html="l2" ng-style="{ color: getPanel(L2.status, 'green') }"></span></td>
+									<td class="text-center td-no-border td-right"></td>
+								</tr>
+							</table>
+						<div class="panel-footer"></div>
+					</div>
+				</div>
+				<!-- Door -->
+				<div class="col-md-3">
+					<div class="panel panel-default">
+						<div class="panel-heading text-center"><strong>Garage Door</strong></div>
+						<table class="table table-condensed">
+							<tr ng-class="getStatus(M0.direction)">
+								<td>Direction</td>
+								<td class="text-center" ng-bind-html="getDirection(M0.direction, stop, down, up)"></td>
+								<td></td>
+							</tr>
+							<tr ng-class="getStatus(M0.direction)">
+								<td>Elapsed</td>
+								<td class="text-center"><strong class="text-primary panel-body-right" ng-bind="M0.elapsed"></strong></td>
+								<td><strong>&nbsp;msec</strong></td>
+							</tr>
+						</table>
+						<table class="table table-condensed">
+							<tr ng-class="getStatus(M0.direction)">
+								<td ng-bind="EZE.label" title="{{EZE.text}}"></td>
+								<td class="text-center"  title="{{EZE.text}}"><span ng-class="getIo(EZE.status)"></span></td>
+								<td ng-bind="SZE.label" title="{{SZE.text}}"></td>
+								<td class="text-center"  title="{{SZE.text}}"><span ng-class="getIo(SZE.status)"></span></td>
+								<td ng-bind="APE.label" title="{{APE.text}}"></td>
+								<td class="text-center"  title="{{APE.text}}"><span ng-class="getIo(APE.status)"></span></td>
+							</tr>
+							<tr ng-class="getStatus(M0.direction)">
+								<td ng-bind="EOE.label" title="{{EOE.text}}"></td>
+								<td class="text-center"  title="{{EOE.text}}"><span ng-class="getIo(EOE.status)"></span></td>
+								<td ng-bind="SOE.label" title="{{SOE.text}}"></td>
+								<td class="text-center"  title="{{SOE.text}}"><span ng-class="getIo(SOE.status)"></span></td>
+								<td ng-bind="FBE.label" title="{{FBE.text}}"></td>
+								<td class="text-center"  title="{{FBE.text}}"><span ng-class="getIo(FBE.status)"></span></td>
+							</tr>
+						</table>
+						<div class="panel-footer"></div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<!-- Ceiling Motor 1 -->
+					<div class="panel panel-default">
+						<div class="panel-heading text-center"><strong>Ceiling Motor 1</strong></div>
+						<table class="table table-condensed">
+							<tr ng-class="getStatus(M1.direction)">
+								<td>Direction</td>
+								<td class="text-center" ng-bind-html="getDirection(M1.direction, stop, up, down)"></td>
+								<td></td>
+							</tr>
+							<tr ng-class="getStatus(M1.direction)">
+								<td>Elapsed</td>
+								<td class="text-center"><strong class="text-primary panel-body-right" ng-bind="M1.elapsed"></strong></td>
+								<td><strong>&nbsp;msec</strong></td>
+							</tr>
+						</table>
+						<table class="table table-condensed">
+							<tr ng-class="getStatus(M1.direction)">
+								<td ng-bind="EFA1.label" title="{{EFA1.text}}"></td>
+								<td class="text-center"  title="{{EFA1.text}}"><span ng-class="getIo(EFA1.status)"></span></td>
+								<td ng-bind="STA1.label" title="{{STA1.text}}"></td>
+								<td class="text-center"  title="{{STA1.text}}"><span ng-class="getIo(STA1.status)"></span></td>
+								<td ng-bind="ATV.label" title="{{ATV.text}}"></td>
+								<td class="text-center"  title="{{ATV.text}}"><span ng-class="getIo(ATV.status)"></span></td>
+							</tr>
+							<tr ng-class="getStatus(M1.direction)">
+								<td ng-bind="EFB1.label" title="{{EFB1.text}}"></td>
+								<td class="text-center"  title="{{EFB1.text}}"><span ng-class="getIo(EFB1.status)"></span></td>
+								<td ng-bind="STB1.label" title="{{STB1.text}}"></td>
+								<td class="text-center"  title="{{STB1.text}}"><span ng-class="getIo(STB1.status)"></span></td>
+								<td ng-bind="STV.label" title="{{STV.text}}"></td>
+								<td class="text-center"  title="{{STV.text}}"><span ng-class="getIo(STV.status)"></span></td>
+							</tr>
+						</table>
+						<div class="panel-footer"></div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<!-- Ceiling Motor 2 -->
+					<div class="panel panel-default">
+						<div class="panel-heading text-center"><strong>Ceiling Motor 2</strong></div>
+							<table class="table table-condensed">
+							<tr ng-class="getStatus(M2.direction)">
+								<td>Direction</td>
+								<td class="text-center" ng-bind-html="getDirection(M2.direction, stop, up, down)"></td>
+								<td></td>
+							</tr>
+							<tr ng-class="getStatus(M2.direction)">
+								<td>Elapsed</td>
+								<td class="text-center"><strong class="text-primary panel-body-right" ng-bind="M2.elapsed"></strong></td>
+								<td><strong>&nbsp;msec</strong></td>
+							</tr>
+						</table>
+						<table class="table table-condensed">
+							<tr ng-class="getStatus(M2.direction)">
+								<td ng-bind="EFA2.label" title="{{EFA2.text}}"></td>
+								<td class="text-center"  title="{{EFA2.text}}"><span ng-class="getIo(EFA2.status)"></span></td>
+								<td ng-bind="STA2.label" title="{{STA2.text}}"></td>
+								<td class="text-center"  title="{{STA2.text}}"><span ng-class="getIo(STA2.status)"></span></td>
+								<td ng-bind="ATV.label" title="{{ATV.text}}"></td>
+								<td class="text-center"  title="{{ATV.text}}"><span ng-class="getIo(ATV.status)"></span></td>
+							</tr>
+							<tr ng-class="getStatus(M2.direction)">
+								<td ng-bind="EFB2.label" title="{{EFB2.text}}"></td>
+								<td class="text-center"  title="{{EFB2.text}}"><span ng-class="getIo(EFB2.status)"></span></td>
+								<td ng-bind="STB2.label" title="{{STB2.text}}"></td>
+								<td class="text-center"  title="{{STB2.text}}"><span ng-class="getIo(STB2.status)"></span></td>
+								<td ng-bind="STV.label" title="{{STV.text}}"></td>
+								<td class="text-center"  title="{{STV.text}}"><span ng-class="getIo(STV.status)"></span></td>
+							</tr>
+						</table>
+						<div class="panel-footer"></div>
+					</div>
+				</div>
+			</div>
+
+			<div class="row">
+				<!--Message Box -->
+				<div class="col-md-6">
+					<div class="panel panel-default">
+						<div class="panel-heading text-center device-heading">Diagnostic Message Box</div>
+						<div class="panel-body message-box"></div>
+						<div class="panel-footer"></div>
+					</div>
+					<label class="checkbox-inline"><input type="checkbox" id="log1" />Elevator</label>
+					<label class="checkbox-inline"><input type="checkbox" id="log2" />Shuttle</label>
+					<label class="checkbox-inline"><input type="checkbox" id="log3" />Silomat</label>
+					<label class="checkbox-inline"><input type="checkbox" id="log4" checked />Garage</label>
+				</div>
+				<div class="col-md-3">
+					<!-- Locking Pin 1 -->
+					<div class="panel panel-default">
+						<div class="panel-heading text-center"><strong>Locking Pin 1</strong></div>
+						<table class="table table-condensed">
+							<tr ng-class="getStatus(M3.direction)">
+								<td>Direction</td>
+								<td class="text-center" ng-bind-html="getDirection(M3.direction, stop, up, down)"></td>
+								<td></td>
+							</tr>
+							<tr ng-class="getStatus(M3.direction)">
+								<td>Elapsed</td>
+								<td class="text-center"><strong class="text-primary panel-body-right" ng-bind="M3.elapsed"></strong></td>
+								<td><strong>&nbsp;msec</strong></td>
+							</tr>
+						</table>
+						<table class="table table-condensed">
+							<tr ng-class="getStatus(M3.direction)">
+								<td ng-bind="EOT1.label" title="{{EOT1.text}}"></td>
+								<td class="text-center"  title="{{EOT1.text}}"><span ng-class="getIo(EOT1.status)"></span></td>
+								<td ng-bind="SMTA1.label" title="{{SMTA1.text}}"></td>
+								<td class="text-center"  title="{{SMTA1.text}}"><span ng-class="getIo(SMTA1.status)"></span></td>
+								<td ng-bind="AMT1.label" title="{{AMT1.text}}"></td>
+								<td class="text-center"  title="{{AMT1.text}}"><span ng-class="getIo(AMT1.status)"></span></td>
+							</tr>
+							<tr ng-class="getStatus(M3.direction)">
+								<td ng-bind="EZT1.label" title="{{EZT1.text}}"></td>
+								<td class="text-center"  title="{{EZT1.text}}"><span ng-class="getIo(EZT1.status)"></span></td>
+								<td ng-bind="SMTB1.label" title="{{SMTB1.text}}"></td>
+								<td class="text-center"  title="{{SMTB1.text}}"><span ng-class="getIo(SMTB1.status)"></span></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+						<div class="panel-footer"></div>
+					</div>
+				</div>
+				<div class="col-md-3">
+					<!-- Locking Pin 2 -->
+					<div class="panel panel-default">
+						<div class="panel-heading text-center"><strong>Locking Pin 2</strong></div>
+						<table class="table table-condensed">
+							<tr ng-class="getStatus(M4.direction)">
+								<td>Direction</td>
+								<td class="text-center" ng-bind-html="getDirection(M4.direction, stop, up, down)"></td>
+								<td></td>
+							</tr>
+							<tr ng-class="getStatus(M4.direction)">
+								<td>Elapsed</td>
+								<td class="text-center"><strong class="text-primary panel-body-right" ng-bind="M4.elapsed"></strong></td>
+								<td><strong>&nbsp;msec</strong></td>
+							</tr>
+						</table>
+						<table class="table table-condensed">
+							<tr ng-class="getStatus(M4.direction)">
+								<td ng-bind="EOT2.label" title="{{EOT2.text}}"></td>
+								<td class="text-center"  title="{{EOT2.text}}"><span ng-class="getIo(EOT2.status)"></span></td>
+								<td ng-bind="SMTA2.label" title="{{SMTA2.text}}"></td>
+								<td class="text-center"  title="{{SMTA2.text}}"><span ng-class="getIo(SMTA2.status)"></span></td>
+								<td ng-bind="AMT2.label" title="{{AMT2.text}}"></td>
+								<td class="text-center"  title="{{AMT2.text}}"><span ng-class="getIo(AMT2.status)"></span></td>
+							</tr>
+							<tr ng-class="getStatus(M4.direction)">
+								<td ng-bind="EZT2.label" title="{{EZT2.text}}"></td>
+								<td class="text-center"  title="{{EZT2.text}}"><span ng-class="getIo(EZT2.status)"></span></td>
+								<td ng-bind="SMTB2.label" title="{{SMTB2.text}}"></td>
+								<td class="text-center"  title="{{SMTB2.text}}"><span ng-class="getIo(SMTB2.status)"></span></td>
+								<td></td>
+								<td></td>
+							</tr>
+						</table>
+						<div class="panel-footer"></div>
+					</div>
+				</div>
+			</div>
+
+
+		</div> <!-- /container -->
+		<% include ../../footer %>
+		<% include ../../scripts %>
+		<% include ../scripts %>
+		<% include scripts %>
+		<script type="text/javascript" src="/js/aps/arlozorov/event.js"></script>
+		<script type="text/javascript" src="/js/aps/arlozorov/garage.js"></script>
+	</body>
+</html>
